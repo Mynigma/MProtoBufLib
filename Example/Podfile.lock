@@ -1,0 +1,14 @@
+PODS:
+  - MProtoBuf (0.1.0)
+
+DEPENDENCIES:
+  - MProtoBuf (from `../`)
+
+EXTERNAL SOURCES:
+  MProtoBuf:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MProtoBuf: 3a44694b17bbb1f1b697cb99d7743ab4254ccbbd
+
+COCOAPODS: 0.37.2

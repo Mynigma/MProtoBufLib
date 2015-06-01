@@ -21,6 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1E1114A91B1CFC28005EAA2A /* Mac-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E1114A51B1CFC28005EAA2A /* Mac-Info.plist */; };
+		1E1114AB1B1CFC30005EAA2A /* iOS-Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E1114A41B1CFC28005EAA2A /* iOS-Tests-Info.plist */; };
+		1E1114AC1B1CFC36005EAA2A /* Mac-Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E1114A61B1CFC28005EAA2A /* Mac-Tests-Info.plist */; };
 		1E2F2E681B1C9D25008D4797 /* SignedDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395FC21B1C94EF00D66920 /* SignedDataStructure.mm */; };
 		1E2F2E691B1C9D3D008D4797 /* HMACDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395EBE1B1C8D1D00D66920 /* HMACDataStructure.mm */; };
 		1E2F2E6A1B1C9D4E008D4797 /* FileAttachmentDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395EBC1B1C8D1D00D66920 /* FileAttachmentDataStructure.mm */; };
@@ -292,11 +295,11 @@
 		1E3960CD1B1C99F200D66920 /* SessionKeyEntryDataStructure_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F1E1B1C8E1A00D66920 /* SessionKeyEntryDataStructure_Tests.mm */; };
 		1E3960CE1B1C99F200D66920 /* SignedDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F1F1B1C8E1A00D66920 /* SignedDataStructure_Tests.m */; };
 		1E3960CF1B1C99F200D66920 /* VersionDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F221B1C8E1A00D66920 /* VersionDataStructure_Tests.m */; };
-		1E3960D11B1C9ABD00D66920 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3960D01B1C9ABD00D66920 /* libz.dylib */; };
 		1E3960D91B1C9B6F00D66920 /* KeyExpectationDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960D61B1C9B6F00D66920 /* KeyExpectationDataStructure.mm */; };
 		1E3960DA1B1C9B6F00D66920 /* KeyExpectationDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960D61B1C9B6F00D66920 /* KeyExpectationDataStructure.mm */; };
 		1E3960E51B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960E21B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm */; };
 		1E3960E61B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960E21B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm */; };
+		1E53CBD51B1CC8C900BC797E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3960D01B1C9ABD00D66920 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -330,10 +333,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E1114A31B1CFC28005EAA2A /* iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
+		1E1114A41B1CFC28005EAA2A /* iOS-Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iOS-Tests-Info.plist"; sourceTree = "<group>"; };
+		1E1114A51B1CFC28005EAA2A /* Mac-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac-Info.plist"; sourceTree = "<group>"; };
+		1E1114A61B1CFC28005EAA2A /* Mac-Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mac-Tests-Info.plist"; sourceTree = "<group>"; };
 		1E2F2E701B1C9E00008D4797 /* ConfirmConnectionPayloadDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfirmConnectionPayloadDataStructure.mm; sourceTree = "<group>"; };
 		1E2F2E7A1B1C9E4A008D4797 /* DeviceDiscoveryPayloadDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeviceDiscoveryPayloadDataStructure.mm; sourceTree = "<group>"; };
 		1E395E8E1B1C8C8300D66920 /* MProtoBufMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MProtoBufMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E395E911B1C8C8300D66920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E395E921B1C8C8300D66920 /* MProtoBufMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MProtoBufMac.h; sourceTree = "<group>"; };
 		1E395E981B1C8C8300D66920 /* MProtoBufMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MProtoBufMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E395EA81B1C8D1D00D66920 /* AnnounceInfoPayloadDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnounceInfoPayloadDataStructure.h; sourceTree = "<group>"; };
@@ -405,7 +411,6 @@
 		1E395F4F1B1C8EA900D66920 /* MProtoBufiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MProtoBufiOS.h; sourceTree = "<group>"; };
 		1E395F511B1C8EA900D66920 /* MProtoBufiOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MProtoBufiOS.m; sourceTree = "<group>"; };
 		1E395F571B1C8EA900D66920 /* MProtoBufiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MProtoBufiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E395F5D1B1C8EA900D66920 /* iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOS; path = "../../Pod/Classes/Supporting Files/iOS"; sourceTree = "<group>"; };
 		1E395F7A1B1C920C00D66920 /* iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOS-Prefix.pch"; sourceTree = "<group>"; };
 		1E395F7B1B1C92B900D66920 /* backupData.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = backupData.pb.cc; sourceTree = "<group>"; };
 		1E395F7C1B1C92B900D66920 /* backupData.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = backupData.pb.h; sourceTree = "<group>"; };
@@ -524,10 +529,10 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		9B15E26870223A7757ACA626 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		9CDEE015142AA1405A2C0DAC /* Pods-MProtoBuf_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MProtoBuf_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MProtoBuf_Tests/Pods-MProtoBuf_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9CDEE015142AA1405A2C0DAC /* Pods-MProtoBuf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MProtoBuf.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MProtoBuf_Tests/Pods-MProtoBuf.debug.xcconfig"; sourceTree = "<group>"; };
 		A796959049E7FF278967C5A5 /* MProtoBuf.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MProtoBuf.podspec; path = ../MProtoBuf.podspec; sourceTree = "<group>"; };
 		C1C5B24DD097A0D6E49E6863 /* Pods_MProtoBuf_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MProtoBuf_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4D7C80C2E5EBA15D030CBF7 /* Pods-MProtoBuf_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MProtoBuf_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MProtoBuf_Tests/Pods-MProtoBuf_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E4D7C80C2E5EBA15D030CBF7 /* Pods-MProtoBuf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MProtoBuf.release.xcconfig"; path = "Pods/Target Support Files/Pods-MProtoBuf_Tests/Pods-MProtoBuf.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,7 +556,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E3960D11B1C9ABD00D66920 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +563,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E53CBD51B1CC8C900BC797E /* libz.dylib in Frameworks */,
 				1E395F581B1C8EA900D66920 /* libMProtoBufiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,15 +571,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E395E901B1C8C8300D66920 /* Mac */ = {
-			isa = PBXGroup;
-			children = (
-				1E395E911B1C8C8300D66920 /* Info.plist */,
-			);
-			name = Mac;
-			path = "../../Pod/Classes/Supporting Files/Mac";
-			sourceTree = "<group>";
-		};
 		1E395EA71B1C8D1D00D66920 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,14 +580,6 @@
 			);
 			name = Source;
 			path = ../Pod/Classes/Source;
-			sourceTree = "<group>";
-		};
-		1E395EF81B1C8D9D00D66920 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				1E395F5D1B1C8EA900D66920 /* iOS */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		1E395EF91B1C8DC500D66920 /* Mac */ = {
@@ -935,11 +923,13 @@
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1E395EF81B1C8D9D00D66920 /* iOS */,
-				1E395E901B1C8C8300D66920 /* Mac */,
+				1E1114A31B1CFC28005EAA2A /* iOS-Info.plist */,
+				1E1114A41B1CFC28005EAA2A /* iOS-Tests-Info.plist */,
+				1E1114A51B1CFC28005EAA2A /* Mac-Info.plist */,
+				1E1114A61B1CFC28005EAA2A /* Mac-Tests-Info.plist */,
 			);
 			name = "Supporting Files";
-			path = Tests;
+			path = "../Supporting Files";
 			sourceTree = "<group>";
 		};
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
@@ -955,8 +945,8 @@
 		8F5894798C46ED056BC98225 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9CDEE015142AA1405A2C0DAC /* Pods-MProtoBuf_Tests.debug.xcconfig */,
-				E4D7C80C2E5EBA15D030CBF7 /* Pods-MProtoBuf_Tests.release.xcconfig */,
+				9CDEE015142AA1405A2C0DAC /* Pods-MProtoBuf.debug.xcconfig */,
+				E4D7C80C2E5EBA15D030CBF7 /* Pods-MProtoBuf.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1176,6 +1166,7 @@
 			files = (
 				1E3960A11B1C98B900D66920 /* text_format_unittest_data.txt in Resources */,
 				1E3960A01B1C98B900D66920 /* golden_packed_fields_message in Resources */,
+				1E1114A91B1CFC28005EAA2A /* Mac-Info.plist in Resources */,
 				1E3960411B1C98B900D66920 /* descriptor.proto in Resources */,
 				1E3960A21B1C98B900D66920 /* text_format_unittest_extensions_data.txt in Resources */,
 				1E39609F1B1C98B900D66920 /* golden_message in Resources */,
@@ -1188,6 +1179,7 @@
 			files = (
 				1E395F0E1B1C8E0A00D66920 /* Sample_Data3.txt in Resources */,
 				1E395F131B1C8E0A00D66920 /* Sample_DecKey3.txt in Resources */,
+				1E1114AC1B1CFC36005EAA2A /* Mac-Tests-Info.plist in Resources */,
 				1E395F1A1B1C8E0A00D66920 /* Sample_VerKey1.txt in Resources */,
 				1E395F171B1C8E0A00D66920 /* Sample_SigKey1.txt in Resources */,
 				1E395F111B1C8E0A00D66920 /* Sample_DecKey1.txt in Resources */,
@@ -1212,6 +1204,7 @@
 			files = (
 				1E2F2E801B1C9E97008D4797 /* Sample_Data3.txt in Resources */,
 				1E2F2E851B1C9E97008D4797 /* Sample_DecKey3.txt in Resources */,
+				1E1114AB1B1CFC30005EAA2A /* iOS-Tests-Info.plist in Resources */,
 				1E2F2E8C1B1C9E97008D4797 /* Sample_VerKey1.txt in Resources */,
 				1E2F2E891B1C9E97008D4797 /* Sample_SigKey1.txt in Resources */,
 				1E2F2E831B1C9E97008D4797 /* Sample_DecKey1.txt in Resources */,
@@ -1478,7 +1471,7 @@
 					"$(PROJECT_DIR)/include/**",
 					"\"$(PROJECT_DIR)/Generated files\"",
 				);
-				INFOPLIST_FILE = "../Pod/Classes/Supporting Files/Mac/Info.plist";
+				INFOPLIST_FILE = "../Supporting Files/Mac-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
@@ -1518,7 +1511,7 @@
 					"$(PROJECT_DIR)/include/**",
 					"\"$(PROJECT_DIR)/Generated files\"",
 				);
-				INFOPLIST_FILE = "../Pod/Classes/Supporting Files/Mac/Info.plist";
+				INFOPLIST_FILE = "../Supporting Files/Mac-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
@@ -1556,7 +1549,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/include/**",
 				);
-				INFOPLIST_FILE = "../Pod/Classes/Supporting Files/Mac/Info.plist";
+				INFOPLIST_FILE = "../Supporting Files/Mac-Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -1586,7 +1579,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/include/**",
 				);
-				INFOPLIST_FILE = "../Pod/Classes/Supporting Files/Mac/Info.plist";
+				INFOPLIST_FILE = "../Supporting Files/Mac-Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -1616,6 +1609,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/include/**",
 				);
+				INFOPLIST_FILE = "../Supporting Files/iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1642,6 +1636,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/include/**",
 				);
+				INFOPLIST_FILE = "../Supporting Files/iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1663,6 +1658,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/include/**",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1673,7 +1670,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/include/**",
 				);
-				INFOPLIST_FILE = "../Pod/Classes/Supporting Files/iOS/Info.plist";
+				INFOPLIST_FILE = "../Supporting Files/iOS-Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
@@ -1695,13 +1692,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/include/**",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/include/**",
 				);
-				INFOPLIST_FILE = "../Pod/Classes/Supporting Files/iOS/Info.plist";
+				INFOPLIST_FILE = "../Supporting Files/iOS-Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/include/**";
@@ -1761,7 +1760,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1794,7 +1794,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
