@@ -1,30 +1,21 @@
-#
-# Be sure to run `pod lib lint MProtoBuf.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "MProtoBuf"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of MProtoBuf."
-  s.description      = <<-DESC
-                       An optional longer description of MProtoBuf
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
+  s.version          = "1.0.0"
+  s.summary          = "Helper library for MCryptoLib, responsible for parsing Google Protocol Buffers structures."
   s.homepage         = "https://github.com/<GITHUB_USERNAME>/MProtoBuf"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
+  s.license          = 'GPLv3'
   s.author           = { "Romes" => "roman@mynigma.org" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MProtoBuf.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/Mynigma/MProtoBuf.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/Mynigma'
 
-  s.platform     = :ios, '7.0'
+  s.ios.deployment_target = "7.0"
+  s.osx.deployment_target = "10.8"
+
+  s.ios.libraries = 'z'
+
+  s.header_dir = 'MProtoBuf'
+
+  s.platforms = { "ios" => "6.0", "osx" => "10.8" }
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
@@ -32,7 +23,4 @@ Pod::Spec.new do |s|
     'MProtoBuf' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
-end
+ end
