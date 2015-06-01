@@ -11,7 +11,7 @@ before_install:
 install:
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
-- set -o pipefail && xcodebuild test -workspace Example/MProtoBuf.xcworkspace -scheme MProtoBuf-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+# - set -o pipefail && xcodebuild test -workspace Example/MProtoBuf.xcworkspace -scheme MProtoBufiOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
 - pod lib lint --quick
 - xctool -project MProtoBuf.xcodeproj -scheme MProtoBuf -sdk iphonesimulator8.1 clean test ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
 
