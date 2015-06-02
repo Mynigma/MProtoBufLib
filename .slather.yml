@@ -1,4 +1,4 @@
 ci_service: travis_ci
 coverage_service: coveralls
-xcodeproj: MProtoBuf.xcodeproj
-source_directory: MProtoBufLib/Source
+xcodeproj: Example/MProtoBuf.xcodeproj
+source_directory: Pod/Classes/Source
