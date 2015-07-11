@@ -299,6 +299,9 @@
 		1E3960DA1B1C9B6F00D66920 /* KeyExpectationDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960D61B1C9B6F00D66920 /* KeyExpectationDataStructure.mm */; };
 		1E3960E51B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960E21B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm */; };
 		1E3960E61B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960E21B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm */; };
+		1E44D3321B1E4DF700BAC595 /* MProtoBuf.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E44D3311B1E4DF700BAC595 /* MProtoBuf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E44D3381B1E4DF700BAC595 /* MProtoBuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E44D32D1B1E4DF700BAC595 /* MProtoBuf.framework */; };
+		1E44D33F1B1E4DF700BAC595 /* MProtoBufTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E44D33E1B1E4DF700BAC595 /* MProtoBufTests.m */; };
 		1E53CBD51B1CC8C900BC797E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3960D01B1C9ABD00D66920 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -316,6 +319,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1E395F4C1B1C8EA900D66920;
 			remoteInfo = MProtoBufiOS;
+		};
+		1E44D3391B1E4DF700BAC595 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E44D32C1B1E4DF700BAC595;
+			remoteInfo = MProtoBuf;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -522,6 +532,12 @@
 		1E3960D01B1C9ABD00D66920 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1E3960D61B1C9B6F00D66920 /* KeyExpectationDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyExpectationDataStructure.mm; sourceTree = "<group>"; };
 		1E3960E21B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyIntroductionDataStructure.mm; sourceTree = "<group>"; };
+		1E44D32D1B1E4DF700BAC595 /* MProtoBuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MProtoBuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E44D3301B1E4DF700BAC595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E44D3311B1E4DF700BAC595 /* MProtoBuf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MProtoBuf.h; sourceTree = "<group>"; };
+		1E44D3371B1E4DF700BAC595 /* MProtoBufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MProtoBufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E44D33D1B1E4DF700BAC595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E44D33E1B1E4DF700BAC595 /* MProtoBufTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MProtoBufTests.m; sourceTree = "<group>"; };
 		4FAD47FD7F2D48A8E1DE2032 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -565,6 +581,21 @@
 			files = (
 				1E53CBD51B1CC8C900BC797E /* libz.dylib in Frameworks */,
 				1E395F581B1C8EA900D66920 /* libMProtoBufiOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E44D3291B1E4DF700BAC595 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E44D3341B1E4DF700BAC595 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E44D3381B1E4DF700BAC595 /* MProtoBuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,6 +900,40 @@
 			path = testing;
 			sourceTree = "<group>";
 		};
+		1E44D32E1B1E4DF700BAC595 /* MProtoBuf */ = {
+			isa = PBXGroup;
+			children = (
+				1E44D3311B1E4DF700BAC595 /* MProtoBuf.h */,
+				1E44D32F1B1E4DF700BAC595 /* Supporting Files */,
+			);
+			path = MProtoBuf;
+			sourceTree = "<group>";
+		};
+		1E44D32F1B1E4DF700BAC595 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E44D3301B1E4DF700BAC595 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E44D33B1B1E4DF700BAC595 /* MProtoBufTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E44D33E1B1E4DF700BAC595 /* MProtoBufTests.m */,
+				1E44D33C1B1E4DF700BAC595 /* Supporting Files */,
+			);
+			path = MProtoBufTests;
+			sourceTree = "<group>";
+		};
+		1E44D33C1B1E4DF700BAC595 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E44D33D1B1E4DF700BAC595 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -877,6 +942,8 @@
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				6003F5B5195388D20070C39A /* Tests */,
+				1E44D32E1B1E4DF700BAC595 /* MProtoBuf */,
+				1E44D33B1B1E4DF700BAC595 /* MProtoBufTests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				8F5894798C46ED056BC98225 /* Pods */,
@@ -890,6 +957,8 @@
 				1E395E981B1C8C8300D66920 /* MProtoBufMacTests.xctest */,
 				1E395F4D1B1C8EA900D66920 /* libMProtoBufiOS.a */,
 				1E395F571B1C8EA900D66920 /* MProtoBufiOSTests.xctest */,
+				1E44D32D1B1E4DF700BAC595 /* MProtoBuf.framework */,
+				1E44D3371B1E4DF700BAC595 /* MProtoBufTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1036,6 +1105,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1E44D32A1B1E4DF700BAC595 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E44D3321B1E4DF700BAC595 /* MProtoBuf.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1110,6 +1187,42 @@
 			productReference = 1E395F571B1C8EA900D66920 /* MProtoBufiOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1E44D32C1B1E4DF700BAC595 /* MProtoBuf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E44D3441B1E4DF700BAC595 /* Build configuration list for PBXNativeTarget "MProtoBuf" */;
+			buildPhases = (
+				1E44D3281B1E4DF700BAC595 /* Sources */,
+				1E44D3291B1E4DF700BAC595 /* Frameworks */,
+				1E44D32A1B1E4DF700BAC595 /* Headers */,
+				1E44D32B1B1E4DF700BAC595 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MProtoBuf;
+			productName = MProtoBuf;
+			productReference = 1E44D32D1B1E4DF700BAC595 /* MProtoBuf.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1E44D3361B1E4DF700BAC595 /* MProtoBufTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E44D3451B1E4DF700BAC595 /* Build configuration list for PBXNativeTarget "MProtoBufTests" */;
+			buildPhases = (
+				1E44D3331B1E4DF700BAC595 /* Sources */,
+				1E44D3341B1E4DF700BAC595 /* Frameworks */,
+				1E44D3351B1E4DF700BAC595 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E44D33A1B1E4DF700BAC595 /* PBXTargetDependency */,
+			);
+			name = MProtoBufTests;
+			productName = MProtoBufTests;
+			productReference = 1E44D3371B1E4DF700BAC595 /* MProtoBufTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1135,6 +1248,12 @@
 					1E395F641B1C8F9B00D66920 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
+					1E44D32C1B1E4DF700BAC595 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					1E44D3361B1E4DF700BAC595 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "MProtoBuf" */;
@@ -1155,6 +1274,8 @@
 				1E395F4C1B1C8EA900D66920 /* MProtoBufiOS */,
 				1E395F561B1C8EA900D66920 /* MProtoBufiOSTests */,
 				1E395F641B1C8F9B00D66920 /* MProtoBuf_Universal */,
+				1E44D32C1B1E4DF700BAC595 /* MProtoBuf */,
+				1E44D3361B1E4DF700BAC595 /* MProtoBufTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1220,6 +1341,20 @@
 				1E2F2E8A1B1C9E97008D4797 /* Sample_SigKey2.txt in Resources */,
 				1E2F2E7F1B1C9E97008D4797 /* Sample_Data2.txt in Resources */,
 				1E2F2E861B1C9E97008D4797 /* Sample_EncKey1.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E44D32B1B1E4DF700BAC595 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E44D3351B1E4DF700BAC595 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1428,6 +1563,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1E44D3281B1E4DF700BAC595 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E44D3331B1E4DF700BAC595 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E44D33F1B1E4DF700BAC595 /* MProtoBufTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1440,6 +1590,11 @@
 			isa = PBXTargetDependency;
 			target = 1E395F4C1B1C8EA900D66920 /* MProtoBufiOS */;
 			targetProxy = 1E395F591B1C8EA900D66920 /* PBXContainerItemProxy */;
+		};
+		1E44D33A1B1E4DF700BAC595 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E44D32C1B1E4DF700BAC595 /* MProtoBuf */;
+			targetProxy = 1E44D3391B1E4DF700BAC595 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1728,6 +1883,102 @@
 			};
 			name = Release;
 		};
+		1E44D3401B1E4DF700BAC595 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MProtoBuf/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1E44D3411B1E4DF700BAC595 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MProtoBuf/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1E44D3421B1E4DF700BAC595 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MProtoBufTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1E44D3431B1E4DF700BAC595 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MProtoBufTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1849,6 +2100,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1E44D3441B1E4DF700BAC595 /* Build configuration list for PBXNativeTarget "MProtoBuf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E44D3401B1E4DF700BAC595 /* Debug */,
+				1E44D3411B1E4DF700BAC595 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1E44D3451B1E4DF700BAC595 /* Build configuration list for PBXNativeTarget "MProtoBufTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E44D3421B1E4DF700BAC595 /* Debug */,
+				1E44D3431B1E4DF700BAC595 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "MProtoBuf" */ = {
 			isa = XCConfigurationList;
