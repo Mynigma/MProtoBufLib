@@ -53,7 +53,7 @@
 
 #import <XCTest/XCTest.h>
 #import "TestHelper.h"
-#import "BackupDataStructure.h"
+#import "PlainBackupDataStructure.h"
 #import "KeyExpectationDataStructure.h"
 #import "PublicKeyDataStructure.h"
 #import "PrivateKeyDataStructure.h"
@@ -61,11 +61,11 @@
 
 
 
-@interface BackupDataStructure_Tests : XCTestCase
+@interface PlainBackupDataStructure_Tests : XCTestCase
 
 @end
 
-@implementation BackupDataStructure_Tests
+@implementation PlainBackupDataStructure_Tests
 
 
 
@@ -105,7 +105,7 @@
     
     version = @"SomeVersion4r346547";
     
-    BackupDataStructure* originalStructure = [[BackupDataStructure alloc] initWithPrivateKeys:@[privateKeyDataStructure] publicKeys:@[publicKeyDataStructure] keyExpectations:@[keyExpectation] version:version];
+    PlainBackupDataStructure* originalStructure = [[PlainBackupDataStructure alloc] initWithPrivateKeys:@[privateKeyDataStructure] publicKeys:@[publicKeyDataStructure] keyExpectations:@[keyExpectation] version:version];
     
     XCTAssertNotNil(originalStructure);
     
@@ -113,7 +113,7 @@
     
     XCTAssertNotNil(parsedData);
     
-    BackupDataStructure* reparsedStructure = [BackupDataStructure deserialiseData:parsedData];
+    PlainBackupDataStructure* reparsedStructure = [PlainBackupDataStructure deserialiseData:parsedData];
     
     XCTAssertNotNil(reparsedStructure);
     
@@ -155,7 +155,7 @@
 
 - (void)testNilSafe
 {
-    BackupDataStructure* dataStructure = [[BackupDataStructure alloc] initWithPrivateKeys:nil publicKeys:nil keyExpectations:nil version:nil];
+    PlainBackupDataStructure* dataStructure = [[PlainBackupDataStructure alloc] initWithPrivateKeys:nil publicKeys:nil keyExpectations:nil version:nil];
     
     [dataStructure serialisedData];
 }

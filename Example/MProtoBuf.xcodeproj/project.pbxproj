@@ -21,9 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1E1114A91B1CFC28005EAA2A /* Mac-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E1114A51B1CFC28005EAA2A /* Mac-Info.plist */; };
-		1E1114AB1B1CFC30005EAA2A /* iOS-Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E1114A41B1CFC28005EAA2A /* iOS-Tests-Info.plist */; };
-		1E1114AC1B1CFC36005EAA2A /* Mac-Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E1114A61B1CFC28005EAA2A /* Mac-Tests-Info.plist */; };
 		1E2F2E681B1C9D25008D4797 /* SignedDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395FC21B1C94EF00D66920 /* SignedDataStructure.mm */; };
 		1E2F2E691B1C9D3D008D4797 /* HMACDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395EBE1B1C8D1D00D66920 /* HMACDataStructure.mm */; };
 		1E2F2E6A1B1C9D4E008D4797 /* FileAttachmentDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395EBC1B1C8D1D00D66920 /* FileAttachmentDataStructure.mm */; };
@@ -63,7 +60,7 @@
 		1E395E931B1C8C8300D66920 /* MProtoBufMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E395E921B1C8C8300D66920 /* MProtoBufMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E395E991B1C8C8300D66920 /* MProtoBufMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E395E8E1B1C8C8300D66920 /* MProtoBufMac.framework */; };
 		1E395ED01B1C8D1D00D66920 /* AnnounceInfoPayloadDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E395EA81B1C8D1D00D66920 /* AnnounceInfoPayloadDataStructure.h */; };
-		1E395ED21B1C8D1D00D66920 /* BackupDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E395EAA1B1C8D1D00D66920 /* BackupDataStructure.h */; };
+		1E395ED21B1C8D1D00D66920 /* PlainBackupDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E395EAA1B1C8D1D00D66920 /* PlainBackupDataStructure.h */; };
 		1E395ED41B1C8D1D00D66920 /* ConfirmConnectionPayloadDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E395EAC1B1C8D1D00D66920 /* ConfirmConnectionPayloadDataStructure.h */; };
 		1E395ED61B1C8D1D00D66920 /* DataStructureProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E395EAE1B1C8D1D00D66920 /* DataStructureProtocols.h */; };
 		1E395ED71B1C8D1D00D66920 /* DeviceDiscoveryPayloadDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E395EAF1B1C8D1D00D66920 /* DeviceDiscoveryPayloadDataStructure.h */; };
@@ -111,7 +108,7 @@
 		1E395F251B1C8E1A00D66920 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F211B1C8E1A00D66920 /* TestHelper.m */; };
 		1E395F261B1C8E1A00D66920 /* VersionDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F221B1C8E1A00D66920 /* VersionDataStructure_Tests.m */; };
 		1E395F391B1C8E4300D66920 /* AnnounceInfoPayloadDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F291B1C8E4300D66920 /* AnnounceInfoPayloadDataStructure_Tests.m */; };
-		1E395F3A1B1C8E4300D66920 /* BackupDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2A1B1C8E4300D66920 /* BackupDataStructure_Tests.m */; };
+		1E395F3A1B1C8E4300D66920 /* PlainBackupDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2A1B1C8E4300D66920 /* PlainBackupDataStructure_Tests.m */; };
 		1E395F3B1B1C8E4300D66920 /* ConfirmConnectionPayloadDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2B1B1C8E4300D66920 /* ConfirmConnectionPayloadDataStructure_Tests.m */; };
 		1E395F3C1B1C8E4300D66920 /* DeviceDiscoveryPayloadDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2C1B1C8E4300D66920 /* DeviceDiscoveryPayloadDataStructure_Tests.m */; };
 		1E395F3D1B1C8E4300D66920 /* DeviceMessageDataStructure_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2D1B1C8E4300D66920 /* DeviceMessageDataStructure_Tests.mm */; };
@@ -274,10 +271,10 @@
 		1E3960B71B1C98B900D66920 /* wire_format_lite.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960371B1C98B900D66920 /* wire_format_lite.cc */; };
 		1E3960B81B1C98B900D66920 /* wire_format_lite.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E3960381B1C98B900D66920 /* wire_format_lite.h */; };
 		1E3960B91B1C98B900D66920 /* wire_format_lite_inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E3960391B1C98B900D66920 /* wire_format_lite_inl.h */; };
-		1E3960BB1B1C99B100D66920 /* BackupDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960BA1B1C99B100D66920 /* BackupDataStructure.mm */; };
-		1E3960BC1B1C99B100D66920 /* BackupDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960BA1B1C99B100D66920 /* BackupDataStructure.mm */; };
+		1E3960BB1B1C99B100D66920 /* PlainBackupDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960BA1B1C99B100D66920 /* PlainBackupDataStructure.mm */; };
+		1E3960BC1B1C99B100D66920 /* PlainBackupDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3960BA1B1C99B100D66920 /* PlainBackupDataStructure.mm */; };
 		1E3960BD1B1C99F200D66920 /* AnnounceInfoPayloadDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F291B1C8E4300D66920 /* AnnounceInfoPayloadDataStructure_Tests.m */; };
-		1E3960BE1B1C99F200D66920 /* BackupDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2A1B1C8E4300D66920 /* BackupDataStructure_Tests.m */; };
+		1E3960BE1B1C99F200D66920 /* PlainBackupDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2A1B1C8E4300D66920 /* PlainBackupDataStructure_Tests.m */; };
 		1E3960BF1B1C99F200D66920 /* ConfirmConnectionPayloadDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2B1B1C8E4300D66920 /* ConfirmConnectionPayloadDataStructure_Tests.m */; };
 		1E3960C01B1C99F200D66920 /* DeviceDiscoveryPayloadDataStructure_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2C1B1C8E4300D66920 /* DeviceDiscoveryPayloadDataStructure_Tests.m */; };
 		1E3960C11B1C99F200D66920 /* DeviceMessageDataStructure_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E395F2D1B1C8E4300D66920 /* DeviceMessageDataStructure_Tests.mm */; };
@@ -303,6 +300,11 @@
 		1E44D3381B1E4DF700BAC595 /* MProtoBuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E44D32D1B1E4DF700BAC595 /* MProtoBuf.framework */; };
 		1E44D33F1B1E4DF700BAC595 /* MProtoBufTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E44D33E1B1E4DF700BAC595 /* MProtoBufTests.m */; };
 		1E53CBD51B1CC8C900BC797E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3960D01B1C9ABD00D66920 /* libz.dylib */; };
+		1EF079C21B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF079C01B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h */; };
+		1EF079C31B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF079C01B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h */; };
+		1EF079C41B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1EF079C11B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm */; };
+		1EF079C51B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1EF079C11B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm */; };
+		1EF079C61B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1EF079C11B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -353,7 +355,7 @@
 		1E395E921B1C8C8300D66920 /* MProtoBufMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MProtoBufMac.h; sourceTree = "<group>"; };
 		1E395E981B1C8C8300D66920 /* MProtoBufMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MProtoBufMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E395EA81B1C8D1D00D66920 /* AnnounceInfoPayloadDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnounceInfoPayloadDataStructure.h; sourceTree = "<group>"; };
-		1E395EAA1B1C8D1D00D66920 /* BackupDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupDataStructure.h; sourceTree = "<group>"; };
+		1E395EAA1B1C8D1D00D66920 /* PlainBackupDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlainBackupDataStructure.h; sourceTree = "<group>"; };
 		1E395EAC1B1C8D1D00D66920 /* ConfirmConnectionPayloadDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmConnectionPayloadDataStructure.h; sourceTree = "<group>"; };
 		1E395EAE1B1C8D1D00D66920 /* DataStructureProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStructureProtocols.h; sourceTree = "<group>"; };
 		1E395EAF1B1C8D1D00D66920 /* DeviceDiscoveryPayloadDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDiscoveryPayloadDataStructure.h; sourceTree = "<group>"; };
@@ -402,7 +404,7 @@
 		1E395F211B1C8E1A00D66920 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		1E395F221B1C8E1A00D66920 /* VersionDataStructure_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionDataStructure_Tests.m; sourceTree = "<group>"; };
 		1E395F291B1C8E4300D66920 /* AnnounceInfoPayloadDataStructure_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnounceInfoPayloadDataStructure_Tests.m; sourceTree = "<group>"; };
-		1E395F2A1B1C8E4300D66920 /* BackupDataStructure_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupDataStructure_Tests.m; sourceTree = "<group>"; };
+		1E395F2A1B1C8E4300D66920 /* PlainBackupDataStructure_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlainBackupDataStructure_Tests.m; sourceTree = "<group>"; };
 		1E395F2B1B1C8E4300D66920 /* ConfirmConnectionPayloadDataStructure_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmConnectionPayloadDataStructure_Tests.m; sourceTree = "<group>"; };
 		1E395F2C1B1C8E4300D66920 /* DeviceDiscoveryPayloadDataStructure_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDiscoveryPayloadDataStructure_Tests.m; sourceTree = "<group>"; };
 		1E395F2D1B1C8E4300D66920 /* DeviceMessageDataStructure_Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeviceMessageDataStructure_Tests.mm; sourceTree = "<group>"; };
@@ -528,7 +530,7 @@
 		1E3960371B1C98B900D66920 /* wire_format_lite.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wire_format_lite.cc; sourceTree = "<group>"; };
 		1E3960381B1C98B900D66920 /* wire_format_lite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wire_format_lite.h; sourceTree = "<group>"; };
 		1E3960391B1C98B900D66920 /* wire_format_lite_inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wire_format_lite_inl.h; sourceTree = "<group>"; };
-		1E3960BA1B1C99B100D66920 /* BackupDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackupDataStructure.mm; sourceTree = "<group>"; };
+		1E3960BA1B1C99B100D66920 /* PlainBackupDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlainBackupDataStructure.mm; sourceTree = "<group>"; };
 		1E3960D01B1C9ABD00D66920 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1E3960D61B1C9B6F00D66920 /* KeyExpectationDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyExpectationDataStructure.mm; sourceTree = "<group>"; };
 		1E3960E21B1C9B8D00D66920 /* KeyIntroductionDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyIntroductionDataStructure.mm; sourceTree = "<group>"; };
@@ -538,6 +540,8 @@
 		1E44D3371B1E4DF700BAC595 /* MProtoBufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MProtoBufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E44D33D1B1E4DF700BAC595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E44D33E1B1E4DF700BAC595 /* MProtoBufTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MProtoBufTests.m; sourceTree = "<group>"; };
+		1EF079C01B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupPasswordFileWrapperDataStructure.h; sourceTree = "<group>"; };
+		1EF079C11B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackupPasswordFileWrapperDataStructure.mm; sourceTree = "<group>"; };
 		4FAD47FD7F2D48A8E1DE2032 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -610,7 +614,7 @@
 				1E395EFA1B1C8DD300D66920 /* Common */,
 			);
 			name = Source;
-			path = ../Pod/Classes/Source;
+			path = ../MProtoBuf;
 			sourceTree = "<group>";
 		};
 		1E395EF91B1C8DC500D66920 /* Mac */ = {
@@ -626,8 +630,8 @@
 			children = (
 				1E395EA81B1C8D1D00D66920 /* AnnounceInfoPayloadDataStructure.h */,
 				1E395FB31B1C94EE00D66920 /* AnnounceInfoPayloadDataStructure.mm */,
-				1E395EAA1B1C8D1D00D66920 /* BackupDataStructure.h */,
-				1E3960BA1B1C99B100D66920 /* BackupDataStructure.mm */,
+				1E395EAA1B1C8D1D00D66920 /* PlainBackupDataStructure.h */,
+				1E3960BA1B1C99B100D66920 /* PlainBackupDataStructure.mm */,
 				1E395EAC1B1C8D1D00D66920 /* ConfirmConnectionPayloadDataStructure.h */,
 				1E2F2E701B1C9E00008D4797 /* ConfirmConnectionPayloadDataStructure.mm */,
 				1E395EAE1B1C8D1D00D66920 /* DataStructureProtocols.h */,
@@ -663,6 +667,8 @@
 				1E395FC21B1C94EF00D66920 /* SignedDataStructure.mm */,
 				1E395ECE1B1C8D1D00D66920 /* VersionDataStructure.h */,
 				1E395FC31B1C94EF00D66920 /* VersionDataStructure.mm */,
+				1EF079C01B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h */,
+				1EF079C11B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -705,7 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				1E395F291B1C8E4300D66920 /* AnnounceInfoPayloadDataStructure_Tests.m */,
-				1E395F2A1B1C8E4300D66920 /* BackupDataStructure_Tests.m */,
+				1E395F2A1B1C8E4300D66920 /* PlainBackupDataStructure_Tests.m */,
 				1E395F2B1B1C8E4300D66920 /* ConfirmConnectionPayloadDataStructure_Tests.m */,
 				1E395F2C1B1C8E4300D66920 /* DeviceDiscoveryPayloadDataStructure_Tests.m */,
 				1E395F2D1B1C8E4300D66920 /* DeviceMessageDataStructure_Tests.mm */,
@@ -757,7 +763,7 @@
 				1E395F801B1C92B900D66920 /* encryption.pb.h */,
 			);
 			name = "Generated files";
-			path = "../Pod/Classes/Generated files";
+			path = ../Pod/Classes/include;
 			sourceTree = "<group>";
 		};
 		1E395FD81B1C98B900D66920 /* google */ = {
@@ -1063,7 +1069,7 @@
 				1E3960711B1C98B900D66920 /* package_info.h in Headers */,
 				1E3960B21B1C98B900D66920 /* unknown_field_set.h in Headers */,
 				1E395ED01B1C8D1D00D66920 /* AnnounceInfoPayloadDataStructure.h in Headers */,
-				1E395ED21B1C8D1D00D66920 /* BackupDataStructure.h in Headers */,
+				1E395ED21B1C8D1D00D66920 /* PlainBackupDataStructure.h in Headers */,
 				1E39606A1B1C98B900D66920 /* zero_copy_stream_impl_lite.h in Headers */,
 				1E395EF41B1C8D1D00D66920 /* SignedDataStructure.h in Headers */,
 				1E39605A1B1C98B900D66920 /* gzip_stream.h in Headers */,
@@ -1082,6 +1088,7 @@
 				1E3960991B1C98B900D66920 /* strutil.h in Headers */,
 				1E39608C1B1C98B900D66920 /* map-util.h in Headers */,
 				1E395EE71B1C8D1D00D66920 /* KeyExpectationDataStructure.h in Headers */,
+				1EF079C21B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h in Headers */,
 				1E39608A1B1C98B900D66920 /* common.h in Headers */,
 				1E395ED91B1C8D1D00D66920 /* DeviceMessageDataStructure.h in Headers */,
 				1E395EDB1B1C8D1D00D66920 /* DigestInfoPairDataStructure.h in Headers */,
@@ -1110,6 +1117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E44D3321B1E4DF700BAC595 /* MProtoBuf.h in Headers */,
+				1EF079C31B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1230,7 +1238,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = M;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Romes;
 				TargetAttributes = {
 					1E395E8D1B1C8C8300D66920 = {
@@ -1287,7 +1295,6 @@
 			files = (
 				1E3960A11B1C98B900D66920 /* text_format_unittest_data.txt in Resources */,
 				1E3960A01B1C98B900D66920 /* golden_packed_fields_message in Resources */,
-				1E1114A91B1CFC28005EAA2A /* Mac-Info.plist in Resources */,
 				1E3960411B1C98B900D66920 /* descriptor.proto in Resources */,
 				1E3960A21B1C98B900D66920 /* text_format_unittest_extensions_data.txt in Resources */,
 				1E39609F1B1C98B900D66920 /* golden_message in Resources */,
@@ -1300,7 +1307,6 @@
 			files = (
 				1E395F0E1B1C8E0A00D66920 /* Sample_Data3.txt in Resources */,
 				1E395F131B1C8E0A00D66920 /* Sample_DecKey3.txt in Resources */,
-				1E1114AC1B1CFC36005EAA2A /* Mac-Tests-Info.plist in Resources */,
 				1E395F1A1B1C8E0A00D66920 /* Sample_VerKey1.txt in Resources */,
 				1E395F171B1C8E0A00D66920 /* Sample_SigKey1.txt in Resources */,
 				1E395F111B1C8E0A00D66920 /* Sample_DecKey1.txt in Resources */,
@@ -1325,7 +1331,6 @@
 			files = (
 				1E2F2E801B1C9E97008D4797 /* Sample_Data3.txt in Resources */,
 				1E2F2E851B1C9E97008D4797 /* Sample_DecKey3.txt in Resources */,
-				1E1114AB1B1CFC30005EAA2A /* iOS-Tests-Info.plist in Resources */,
 				1E2F2E8C1B1C9E97008D4797 /* Sample_VerKey1.txt in Resources */,
 				1E2F2E891B1C9E97008D4797 /* Sample_SigKey1.txt in Resources */,
 				1E2F2E831B1C9E97008D4797 /* Sample_DecKey1.txt in Resources */,
@@ -1386,6 +1391,7 @@
 				1E2F2E791B1C9E2C008D4797 /* VersionDataStructure.mm in Sources */,
 				1E3960951B1C98B900D66920 /* structurally_valid.cc in Sources */,
 				1E3960781B1C98B900D66920 /* service.cc in Sources */,
+				1EF079C41B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm in Sources */,
 				1E39605C1B1C98B900D66920 /* printer.cc in Sources */,
 				1E3960971B1C98B900D66920 /* strutil.cc in Sources */,
 				1E3960481B1C98B900D66920 /* extension_set.cc in Sources */,
@@ -1415,7 +1421,7 @@
 				1E39604B1B1C98B900D66920 /* extension_set_heavy.cc in Sources */,
 				1E3960851B1C98B900D66920 /* atomicops_internals_x86_msvc.cc in Sources */,
 				1E395EED1B1C8D1D00D66920 /* PayloadPartDataStructure.mm in Sources */,
-				1E3960BB1B1C99B100D66920 /* BackupDataStructure.mm in Sources */,
+				1E3960BB1B1C99B100D66920 /* PlainBackupDataStructure.mm in Sources */,
 				1E2F2E781B1C9E21008D4797 /* SessionKeyEntryDataStructure.mm in Sources */,
 				1E3960451B1C98B900D66920 /* dynamic_message.cc in Sources */,
 				1E3960721B1C98B900D66920 /* reflection_ops.cc in Sources */,
@@ -1465,7 +1471,7 @@
 				1E395F471B1C8E4300D66920 /* PrivateKeyDataStructure_Tests.mm in Sources */,
 				1E395F481B1C8E4300D66920 /* PublicKeyDataStructure_Tests.mm in Sources */,
 				1E395F3B1B1C8E4300D66920 /* ConfirmConnectionPayloadDataStructure_Tests.m in Sources */,
-				1E395F3A1B1C8E4300D66920 /* BackupDataStructure_Tests.m in Sources */,
+				1E395F3A1B1C8E4300D66920 /* PlainBackupDataStructure_Tests.m in Sources */,
 				1E395F431B1C8E4300D66920 /* HMACDataStructure_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1503,7 +1509,7 @@
 				1E2F2E7C1B1C9E4A008D4797 /* DeviceDiscoveryPayloadDataStructure.mm in Sources */,
 				1E3960A41B1C98B900D66920 /* file.cc in Sources */,
 				1E39606F1B1C98B900D66920 /* message_lite.cc in Sources */,
-				1E3960BC1B1C99B100D66920 /* BackupDataStructure.mm in Sources */,
+				1E3960BC1B1C99B100D66920 /* PlainBackupDataStructure.mm in Sources */,
 				1E3960661B1C98B900D66920 /* zero_copy_stream_impl.cc in Sources */,
 				1E3960691B1C98B900D66920 /* zero_copy_stream_impl_lite.cc in Sources */,
 				1E39606C1B1C98B900D66920 /* message.cc in Sources */,
@@ -1514,6 +1520,7 @@
 				1E39605D1B1C98B900D66920 /* printer.cc in Sources */,
 				1E39604C1B1C98B900D66920 /* extension_set_heavy.cc in Sources */,
 				1E2F2E6E1B1C9DED008D4797 /* EmailRecipientDataStructure.mm in Sources */,
+				1EF079C51B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm in Sources */,
 				1E39604F1B1C98B900D66920 /* generated_message_reflection.cc in Sources */,
 				1E395FD61B1C94EF00D66920 /* VersionDataStructure.mm in Sources */,
 				1E395F851B1C92B900D66920 /* deviceMessages.pb.cc in Sources */,
@@ -1558,7 +1565,7 @@
 				1E3960CD1B1C99F200D66920 /* SessionKeyEntryDataStructure_Tests.mm in Sources */,
 				1E3960C21B1C99F200D66920 /* DigestInfoPairDataStructure_Tests.m in Sources */,
 				1E3960C11B1C99F200D66920 /* DeviceMessageDataStructure_Tests.mm in Sources */,
-				1E3960BE1B1C99F200D66920 /* BackupDataStructure_Tests.m in Sources */,
+				1E3960BE1B1C99F200D66920 /* PlainBackupDataStructure_Tests.m in Sources */,
 				1E2F2E7D1B1C9E5A008D4797 /* TestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1567,6 +1574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF079C61B51A7CB00BC4BDD /* BackupPasswordFileWrapperDataStructure.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2108,6 +2116,7 @@
 				1E44D3411B1E4DF700BAC595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E44D3451B1E4DF700BAC595 /* Build configuration list for PBXNativeTarget "MProtoBufTests" */ = {
 			isa = XCConfigurationList;
@@ -2116,6 +2125,7 @@
 				1E44D3431B1E4DF700BAC595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "MProtoBuf" */ = {
 			isa = XCConfigurationList;

@@ -29,9 +29,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* keyExpectation_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   keyExpectation_reflection_ = NULL;
-const ::google::protobuf::Descriptor* backupFile_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* plainBackupData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  backupFile_reflection_ = NULL;
+  plainBackupData_reflection_ = NULL;
+const ::google::protobuf::Descriptor* backupPasswordFileWrapper_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  backupPasswordFileWrapper_reflection_ = NULL;
 
 }  // namespace
 
@@ -43,7 +46,7 @@ void protobuf_AssignDesc_backupData_2eproto() {
       "backupData.proto");
   GOOGLE_CHECK(file != NULL);
   privateKey_descriptor_ = file->message_type(0);
-  static const int privateKey_offsets_[11] = {
+  static const int privateKey_offsets_[15] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, keylabel_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, dateanchored_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, version_),
@@ -52,9 +55,13 @@ void protobuf_AssignDesc_backupData_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, currentkeyforemails_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, keyforemails_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, keyfordeviceswithuuid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, datescurrentkeysanchored_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, decrkeydata_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, signkeydata_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, iscompromised_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, datecreated_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, introduceskeys_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(privateKey, isintroducedbykeys_),
   };
   privateKey_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -68,7 +75,7 @@ void protobuf_AssignDesc_backupData_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(privateKey));
   publicKey_descriptor_ = file->message_type(1);
-  static const int publicKey_offsets_[10] = {
+  static const int publicKey_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, keylabel_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, dateanchored_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, version_),
@@ -77,6 +84,9 @@ void protobuf_AssignDesc_backupData_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, currentkeyforemails_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, keyforemails_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, keyfordeviceswithuuid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, datescurrentkeysanchored_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, iscompromised_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, datecreated_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, introduceskeys_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(publicKey, isintroducedbykeys_),
   };
@@ -95,9 +105,9 @@ void protobuf_AssignDesc_backupData_2eproto() {
   static const int keyExpectation_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(keyExpectation, fromaddress_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(keyExpectation, toaddress_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(keyExpectation, keylabel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(keyExpectation, dateanchored_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(keyExpectation, version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(keyExpectation, keylabel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(keyExpectation, datecreated_),
   };
   keyExpectation_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -110,24 +120,43 @@ void protobuf_AssignDesc_backupData_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(keyExpectation));
-  backupFile_descriptor_ = file->message_type(3);
-  static const int backupFile_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupFile, privkeys_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupFile, pubkeys_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupFile, version_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupFile, keyexpectations_),
+  plainBackupData_descriptor_ = file->message_type(3);
+  static const int plainBackupData_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(plainBackupData, privkeys_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(plainBackupData, pubkeys_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(plainBackupData, version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(plainBackupData, keyexpectations_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(plainBackupData, integritycheckstring_),
   };
-  backupFile_reflection_ =
+  plainBackupData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      backupFile_descriptor_,
-      backupFile::default_instance_,
-      backupFile_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupFile, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupFile, _unknown_fields_),
+      plainBackupData_descriptor_,
+      plainBackupData::default_instance_,
+      plainBackupData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(plainBackupData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(plainBackupData, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(backupFile));
+      sizeof(plainBackupData));
+  backupPasswordFileWrapper_descriptor_ = file->message_type(4);
+  static const int backupPasswordFileWrapper_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupPasswordFileWrapper, payloaddata_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupPasswordFileWrapper, haspassword_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupPasswordFileWrapper, version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupPasswordFileWrapper, passwordsalt_),
+  };
+  backupPasswordFileWrapper_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      backupPasswordFileWrapper_descriptor_,
+      backupPasswordFileWrapper::default_instance_,
+      backupPasswordFileWrapper_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupPasswordFileWrapper, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(backupPasswordFileWrapper, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(backupPasswordFileWrapper));
 }
 
 namespace {
@@ -147,7 +176,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     keyExpectation_descriptor_, &keyExpectation::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    backupFile_descriptor_, &backupFile::default_instance());
+    plainBackupData_descriptor_, &plainBackupData::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    backupPasswordFileWrapper_descriptor_, &backupPasswordFileWrapper::default_instance());
 }
 
 }  // namespace
@@ -159,8 +190,10 @@ void protobuf_ShutdownFile_backupData_2eproto() {
   delete publicKey_reflection_;
   delete keyExpectation::default_instance_;
   delete keyExpectation_reflection_;
-  delete backupFile::default_instance_;
-  delete backupFile_reflection_;
+  delete plainBackupData::default_instance_;
+  delete plainBackupData_reflection_;
+  delete backupPasswordFileWrapper::default_instance_;
+  delete backupPasswordFileWrapper_reflection_;
 }
 
 void protobuf_AddDesc_backupData_2eproto() {
@@ -170,38 +203,48 @@ void protobuf_AddDesc_backupData_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020backupData.proto\022\007mynigma\"\201\002\n\nprivateK"
-    "ey\022\020\n\010keyLabel\030\001 \002(\t\022\024\n\014dateAnchored\030\002 \001"
-    "(\005\022\017\n\007version\030\003 \001(\t\022\023\n\013encrKeyData\030\004 \001(\014"
+    "\n\020backupData.proto\022\007mynigma\"\354\002\n\nprivateK"
+    "ey\022\020\n\010keyLabel\030\001 \001(\t\022\024\n\014dateAnchored\030\002 \001"
+    "(\003\022\017\n\007version\030\003 \001(\t\022\023\n\013encrKeyData\030\004 \001(\014"
     "\022\022\n\nverKeyData\030\005 \001(\014\022\033\n\023currentKeyForEma"
     "ils\030\006 \003(\t\022\024\n\014keyForEmails\030\007 \003(\t\022\035\n\025keyFo"
-    "rDevicesWithUUID\030\010 \003(\t\022\023\n\013decrKeyData\030\t "
-    "\002(\014\022\023\n\013signKeyData\030\n \002(\014\022\025\n\risCompromise"
-    "d\030\013 \001(\010\"\363\001\n\tpublicKey\022\020\n\010keyLabel\030\001 \002(\t\022"
-    "\024\n\014dateAnchored\030\002 \001(\005\022\017\n\007version\030\003 \001(\t\022\023"
-    "\n\013encrKeyData\030\004 \002(\014\022\022\n\nverKeyData\030\005 \002(\014\022"
-    "\033\n\023currentKeyForEmails\030\006 \003(\t\022\024\n\014keyForEm"
-    "ails\030\007 \003(\t\022\035\n\025keyForDevicesWithUUID\030\010 \003("
-    "\t\022\026\n\016introducesKeys\030\r \003(\t\022\032\n\022isIntroduce"
-    "dByKeys\030\016 \003(\t\"q\n\016keyExpectation\022\023\n\013fromA"
-    "ddress\030\001 \001(\t\022\021\n\ttoAddress\030\002 \001(\t\022\020\n\010keyLa"
-    "bel\030\003 \001(\t\022\024\n\014dateAnchored\030\004 \001(\005\022\017\n\007versi"
-    "on\030\005 \001(\t\"\233\001\n\nbackupFile\022%\n\010privKeys\030\001 \003("
-    "\0132\023.mynigma.privateKey\022#\n\007pubKeys\030\002 \003(\0132"
-    "\022.mynigma.publicKey\022\017\n\007version\030\003 \001(\t\0220\n\017"
-    "keyExpectations\030\004 \003(\0132\027.mynigma.keyExpec"
-    "tationB$\n\026org.mynigma.protoc.genB\nBackup"
-    "Data", 844);
+    "rDevicesWithUUID\030\010 \003(\t\022 \n\030datesCurrentKe"
+    "ysAnchored\030\017 \003(\003\022\023\n\013decrKeyData\030\t \001(\014\022\023\n"
+    "\013signKeyData\030\n \001(\014\022\025\n\risCompromised\030\013 \001("
+    "\010\022\023\n\013dateCreated\030\014 \001(\003\022\026\n\016introducesKeys"
+    "\030\r \003(\t\022\032\n\022isIntroducedByKeys\030\016 \003(\t\"\301\002\n\tp"
+    "ublicKey\022\020\n\010keyLabel\030\001 \001(\t\022\024\n\014dateAnchor"
+    "ed\030\002 \001(\003\022\017\n\007version\030\003 \001(\t\022\023\n\013encrKeyData"
+    "\030\004 \001(\014\022\022\n\nverKeyData\030\005 \001(\014\022\033\n\023currentKey"
+    "ForEmails\030\006 \003(\t\022\024\n\014keyForEmails\030\007 \003(\t\022\035\n"
+    "\025keyForDevicesWithUUID\030\010 \003(\t\022 \n\030datesCur"
+    "rentKeysAnchored\030\017 \003(\003\022\025\n\risCompromised\030"
+    "\013 \001(\010\022\023\n\013dateCreated\030\014 \001(\003\022\026\n\016introduces"
+    "Keys\030\r \003(\t\022\032\n\022isIntroducedByKeys\030\016 \003(\t\"p"
+    "\n\016keyExpectation\022\023\n\013fromAddress\030\001 \001(\t\022\021\n"
+    "\ttoAddress\030\002 \001(\t\022\017\n\007version\030\003 \001(\t\022\020\n\010key"
+    "Label\030\004 \001(\t\022\023\n\013dateCreated\030\005 \001(\003\"\276\001\n\017pla"
+    "inBackupData\022%\n\010privKeys\030\001 \003(\0132\023.mynigma"
+    ".privateKey\022#\n\007pubKeys\030\002 \003(\0132\022.mynigma.p"
+    "ublicKey\022\017\n\007version\030\003 \001(\t\0220\n\017keyExpectat"
+    "ions\030\004 \003(\0132\027.mynigma.keyExpectation\022\034\n\024i"
+    "ntegrityCheckString\030\005 \001(\t\"l\n\031backupPassw"
+    "ordFileWrapper\022\023\n\013payloadData\030\001 \001(\014\022\023\n\013h"
+    "asPassword\030\002 \001(\010\022\017\n\007version\030\003 \001(\t\022\024\n\014pas"
+    "swordSalt\030\006 \001(\014B$\n\026org.mynigma.protoc.ge"
+    "nB\nBackupData", 1173);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "backupData.proto", &protobuf_RegisterTypes);
   privateKey::default_instance_ = new privateKey();
   publicKey::default_instance_ = new publicKey();
   keyExpectation::default_instance_ = new keyExpectation();
-  backupFile::default_instance_ = new backupFile();
+  plainBackupData::default_instance_ = new plainBackupData();
+  backupPasswordFileWrapper::default_instance_ = new backupPasswordFileWrapper();
   privateKey::default_instance_->InitAsDefaultInstance();
   publicKey::default_instance_->InitAsDefaultInstance();
   keyExpectation::default_instance_->InitAsDefaultInstance();
-  backupFile::default_instance_->InitAsDefaultInstance();
+  plainBackupData::default_instance_->InitAsDefaultInstance();
+  backupPasswordFileWrapper::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_backupData_2eproto);
 }
 
@@ -223,9 +266,13 @@ const int privateKey::kVerKeyDataFieldNumber;
 const int privateKey::kCurrentKeyForEmailsFieldNumber;
 const int privateKey::kKeyForEmailsFieldNumber;
 const int privateKey::kKeyForDevicesWithUUIDFieldNumber;
+const int privateKey::kDatesCurrentKeysAnchoredFieldNumber;
 const int privateKey::kDecrKeyDataFieldNumber;
 const int privateKey::kSignKeyDataFieldNumber;
 const int privateKey::kIsCompromisedFieldNumber;
+const int privateKey::kDateCreatedFieldNumber;
+const int privateKey::kIntroducesKeysFieldNumber;
+const int privateKey::kIsIntroducedByKeysFieldNumber;
 #endif  // !_MSC_VER
 
 privateKey::privateKey()
@@ -245,13 +292,14 @@ privateKey::privateKey(const privateKey& from)
 void privateKey::SharedCtor() {
   _cached_size_ = 0;
   keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  dateanchored_ = 0;
+  dateanchored_ = GOOGLE_LONGLONG(0);
   version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   encrkeydata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   verkeydata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   decrkeydata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   signkeydata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   iscompromised_ = false;
+  datecreated_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -310,7 +358,7 @@ void privateKey::Clear() {
         keylabel_->clear();
       }
     }
-    dateanchored_ = 0;
+    dateanchored_ = GOOGLE_LONGLONG(0);
     if (has_version()) {
       if (version_ != &::google::protobuf::internal::kEmptyString) {
         version_->clear();
@@ -327,7 +375,7 @@ void privateKey::Clear() {
       }
     }
   }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+  if (_has_bits_[9 / 32] & (0xffu << (9 % 32))) {
     if (has_decrkeydata()) {
       if (decrkeydata_ != &::google::protobuf::internal::kEmptyString) {
         decrkeydata_->clear();
@@ -339,10 +387,14 @@ void privateKey::Clear() {
       }
     }
     iscompromised_ = false;
+    datecreated_ = GOOGLE_LONGLONG(0);
   }
   currentkeyforemails_.Clear();
   keyforemails_.Clear();
   keyfordeviceswithuuid_.Clear();
+  datescurrentkeysanchored_.Clear();
+  introduceskeys_.Clear();
+  isintroducedbykeys_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -353,7 +405,7 @@ bool privateKey::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string keyLabel = 1;
+      // optional string keyLabel = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -369,13 +421,13 @@ bool privateKey::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 dateAnchored = 2;
+      // optional int64 dateAnchored = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_dateAnchored:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &dateanchored_)));
           set_has_dateanchored();
         } else {
@@ -487,7 +539,7 @@ bool privateKey::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes decrKeyData = 9;
+      // optional bytes decrKeyData = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -501,7 +553,7 @@ bool privateKey::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes signKeyData = 10;
+      // optional bytes signKeyData = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -527,6 +579,82 @@ bool privateKey::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(96)) goto parse_dateCreated;
+        break;
+      }
+
+      // optional int64 dateCreated = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dateCreated:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &datecreated_)));
+          set_has_datecreated();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(106)) goto parse_introducesKeys;
+        break;
+      }
+
+      // repeated string introducesKeys = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_introducesKeys:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_introduceskeys()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->introduceskeys(this->introduceskeys_size() - 1).data(),
+            this->introduceskeys(this->introduceskeys_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(106)) goto parse_introducesKeys;
+        if (input->ExpectTag(114)) goto parse_isIntroducedByKeys;
+        break;
+      }
+
+      // repeated string isIntroducedByKeys = 14;
+      case 14: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_isIntroducedByKeys:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_isintroducedbykeys()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->isintroducedbykeys(this->isintroducedbykeys_size() - 1).data(),
+            this->isintroducedbykeys(this->isintroducedbykeys_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(114)) goto parse_isIntroducedByKeys;
+        if (input->ExpectTag(120)) goto parse_datesCurrentKeysAnchored;
+        break;
+      }
+
+      // repeated int64 datesCurrentKeysAnchored = 15;
+      case 15: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_datesCurrentKeysAnchored:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 1, 120, input, this->mutable_datescurrentkeysanchored())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_datescurrentkeysanchored())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(120)) goto parse_datesCurrentKeysAnchored;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -549,7 +677,7 @@ bool privateKey::MergePartialFromCodedStream(
 
 void privateKey::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required string keyLabel = 1;
+  // optional string keyLabel = 1;
   if (has_keylabel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->keylabel().data(), this->keylabel().length(),
@@ -558,9 +686,9 @@ void privateKey::SerializeWithCachedSizes(
       1, this->keylabel(), output);
   }
 
-  // optional int32 dateAnchored = 2;
+  // optional int64 dateAnchored = 2;
   if (has_dateanchored()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->dateanchored(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->dateanchored(), output);
   }
 
   // optional string version = 3;
@@ -611,13 +739,13 @@ void privateKey::SerializeWithCachedSizes(
       8, this->keyfordeviceswithuuid(i), output);
   }
 
-  // required bytes decrKeyData = 9;
+  // optional bytes decrKeyData = 9;
   if (has_decrkeydata()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
       9, this->decrkeydata(), output);
   }
 
-  // required bytes signKeyData = 10;
+  // optional bytes signKeyData = 10;
   if (has_signkeydata()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
       10, this->signkeydata(), output);
@@ -628,6 +756,35 @@ void privateKey::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->iscompromised(), output);
   }
 
+  // optional int64 dateCreated = 12;
+  if (has_datecreated()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->datecreated(), output);
+  }
+
+  // repeated string introducesKeys = 13;
+  for (int i = 0; i < this->introduceskeys_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->introduceskeys(i).data(), this->introduceskeys(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      13, this->introduceskeys(i), output);
+  }
+
+  // repeated string isIntroducedByKeys = 14;
+  for (int i = 0; i < this->isintroducedbykeys_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->isintroducedbykeys(i).data(), this->isintroducedbykeys(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      14, this->isintroducedbykeys(i), output);
+  }
+
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  for (int i = 0; i < this->datescurrentkeysanchored_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
+      15, this->datescurrentkeysanchored(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -636,7 +793,7 @@ void privateKey::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* privateKey::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required string keyLabel = 1;
+  // optional string keyLabel = 1;
   if (has_keylabel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->keylabel().data(), this->keylabel().length(),
@@ -646,9 +803,9 @@ void privateKey::SerializeWithCachedSizes(
         1, this->keylabel(), target);
   }
 
-  // optional int32 dateAnchored = 2;
+  // optional int64 dateAnchored = 2;
   if (has_dateanchored()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->dateanchored(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->dateanchored(), target);
   }
 
   // optional string version = 3;
@@ -702,14 +859,14 @@ void privateKey::SerializeWithCachedSizes(
       WriteStringToArray(8, this->keyfordeviceswithuuid(i), target);
   }
 
-  // required bytes decrKeyData = 9;
+  // optional bytes decrKeyData = 9;
   if (has_decrkeydata()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         9, this->decrkeydata(), target);
   }
 
-  // required bytes signKeyData = 10;
+  // optional bytes signKeyData = 10;
   if (has_signkeydata()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
@@ -719,6 +876,35 @@ void privateKey::SerializeWithCachedSizes(
   // optional bool isCompromised = 11;
   if (has_iscompromised()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->iscompromised(), target);
+  }
+
+  // optional int64 dateCreated = 12;
+  if (has_datecreated()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->datecreated(), target);
+  }
+
+  // repeated string introducesKeys = 13;
+  for (int i = 0; i < this->introduceskeys_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->introduceskeys(i).data(), this->introduceskeys(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(13, this->introduceskeys(i), target);
+  }
+
+  // repeated string isIntroducedByKeys = 14;
+  for (int i = 0; i < this->isintroducedbykeys_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->isintroducedbykeys(i).data(), this->isintroducedbykeys(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(14, this->isintroducedbykeys(i), target);
+  }
+
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  for (int i = 0; i < this->datescurrentkeysanchored_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt64ToArray(15, this->datescurrentkeysanchored(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -732,17 +918,17 @@ int privateKey::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string keyLabel = 1;
+    // optional string keyLabel = 1;
     if (has_keylabel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->keylabel());
     }
 
-    // optional int32 dateAnchored = 2;
+    // optional int64 dateAnchored = 2;
     if (has_dateanchored()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->dateanchored());
     }
 
@@ -768,15 +954,15 @@ int privateKey::ByteSize() const {
     }
 
   }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // required bytes decrKeyData = 9;
+  if (_has_bits_[9 / 32] & (0xffu << (9 % 32))) {
+    // optional bytes decrKeyData = 9;
     if (has_decrkeydata()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
           this->decrkeydata());
     }
 
-    // required bytes signKeyData = 10;
+    // optional bytes signKeyData = 10;
     if (has_signkeydata()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
@@ -786,6 +972,13 @@ int privateKey::ByteSize() const {
     // optional bool isCompromised = 11;
     if (has_iscompromised()) {
       total_size += 1 + 1;
+    }
+
+    // optional int64 dateCreated = 12;
+    if (has_datecreated()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->datecreated());
     }
 
   }
@@ -808,6 +1001,30 @@ int privateKey::ByteSize() const {
   for (int i = 0; i < this->keyfordeviceswithuuid_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->keyfordeviceswithuuid(i));
+  }
+
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->datescurrentkeysanchored_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int64Size(this->datescurrentkeysanchored(i));
+    }
+    total_size += 1 * this->datescurrentkeysanchored_size() + data_size;
+  }
+
+  // repeated string introducesKeys = 13;
+  total_size += 1 * this->introduceskeys_size();
+  for (int i = 0; i < this->introduceskeys_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->introduceskeys(i));
+  }
+
+  // repeated string isIntroducedByKeys = 14;
+  total_size += 1 * this->isintroducedbykeys_size();
+  for (int i = 0; i < this->isintroducedbykeys_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->isintroducedbykeys(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -838,6 +1055,9 @@ void privateKey::MergeFrom(const privateKey& from) {
   currentkeyforemails_.MergeFrom(from.currentkeyforemails_);
   keyforemails_.MergeFrom(from.keyforemails_);
   keyfordeviceswithuuid_.MergeFrom(from.keyfordeviceswithuuid_);
+  datescurrentkeysanchored_.MergeFrom(from.datescurrentkeysanchored_);
+  introduceskeys_.MergeFrom(from.introduceskeys_);
+  isintroducedbykeys_.MergeFrom(from.isintroducedbykeys_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_keylabel()) {
       set_keylabel(from.keylabel());
@@ -855,7 +1075,7 @@ void privateKey::MergeFrom(const privateKey& from) {
       set_verkeydata(from.verkeydata());
     }
   }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+  if (from._has_bits_[9 / 32] & (0xffu << (9 % 32))) {
     if (from.has_decrkeydata()) {
       set_decrkeydata(from.decrkeydata());
     }
@@ -864,6 +1084,9 @@ void privateKey::MergeFrom(const privateKey& from) {
     }
     if (from.has_iscompromised()) {
       set_iscompromised(from.iscompromised());
+    }
+    if (from.has_datecreated()) {
+      set_datecreated(from.datecreated());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -882,7 +1105,6 @@ void privateKey::CopyFrom(const privateKey& from) {
 }
 
 bool privateKey::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000301) != 0x00000301) return false;
 
   return true;
 }
@@ -897,9 +1119,13 @@ void privateKey::Swap(privateKey* other) {
     currentkeyforemails_.Swap(&other->currentkeyforemails_);
     keyforemails_.Swap(&other->keyforemails_);
     keyfordeviceswithuuid_.Swap(&other->keyfordeviceswithuuid_);
+    datescurrentkeysanchored_.Swap(&other->datescurrentkeysanchored_);
     std::swap(decrkeydata_, other->decrkeydata_);
     std::swap(signkeydata_, other->signkeydata_);
     std::swap(iscompromised_, other->iscompromised_);
+    std::swap(datecreated_, other->datecreated_);
+    introduceskeys_.Swap(&other->introduceskeys_);
+    isintroducedbykeys_.Swap(&other->isintroducedbykeys_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -926,6 +1152,9 @@ const int publicKey::kVerKeyDataFieldNumber;
 const int publicKey::kCurrentKeyForEmailsFieldNumber;
 const int publicKey::kKeyForEmailsFieldNumber;
 const int publicKey::kKeyForDevicesWithUUIDFieldNumber;
+const int publicKey::kDatesCurrentKeysAnchoredFieldNumber;
+const int publicKey::kIsCompromisedFieldNumber;
+const int publicKey::kDateCreatedFieldNumber;
 const int publicKey::kIntroducesKeysFieldNumber;
 const int publicKey::kIsIntroducedByKeysFieldNumber;
 #endif  // !_MSC_VER
@@ -947,10 +1176,12 @@ publicKey::publicKey(const publicKey& from)
 void publicKey::SharedCtor() {
   _cached_size_ = 0;
   keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  dateanchored_ = 0;
+  dateanchored_ = GOOGLE_LONGLONG(0);
   version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   encrkeydata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   verkeydata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  iscompromised_ = false;
+  datecreated_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1003,7 +1234,7 @@ void publicKey::Clear() {
         keylabel_->clear();
       }
     }
-    dateanchored_ = 0;
+    dateanchored_ = GOOGLE_LONGLONG(0);
     if (has_version()) {
       if (version_ != &::google::protobuf::internal::kEmptyString) {
         version_->clear();
@@ -1020,9 +1251,14 @@ void publicKey::Clear() {
       }
     }
   }
+  if (_has_bits_[9 / 32] & (0xffu << (9 % 32))) {
+    iscompromised_ = false;
+    datecreated_ = GOOGLE_LONGLONG(0);
+  }
   currentkeyforemails_.Clear();
   keyforemails_.Clear();
   keyfordeviceswithuuid_.Clear();
+  datescurrentkeysanchored_.Clear();
   introduceskeys_.Clear();
   isintroducedbykeys_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1035,7 +1271,7 @@ bool publicKey::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string keyLabel = 1;
+      // optional string keyLabel = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1051,13 +1287,13 @@ bool publicKey::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 dateAnchored = 2;
+      // optional int64 dateAnchored = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_dateAnchored:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &dateanchored_)));
           set_has_dateanchored();
         } else {
@@ -1084,7 +1320,7 @@ bool publicKey::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes encrKeyData = 4;
+      // optional bytes encrKeyData = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1098,7 +1334,7 @@ bool publicKey::MergePartialFromCodedStream(
         break;
       }
 
-      // required bytes verKeyData = 5;
+      // optional bytes verKeyData = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1165,6 +1401,38 @@ bool publicKey::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(66)) goto parse_keyForDevicesWithUUID;
+        if (input->ExpectTag(88)) goto parse_isCompromised;
+        break;
+      }
+
+      // optional bool isCompromised = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_isCompromised:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &iscompromised_)));
+          set_has_iscompromised();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(96)) goto parse_dateCreated;
+        break;
+      }
+
+      // optional int64 dateCreated = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dateCreated:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &datecreated_)));
+          set_has_datecreated();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectTag(106)) goto parse_introducesKeys;
         break;
       }
@@ -1203,6 +1471,28 @@ bool publicKey::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(114)) goto parse_isIntroducedByKeys;
+        if (input->ExpectTag(120)) goto parse_datesCurrentKeysAnchored;
+        break;
+      }
+
+      // repeated int64 datesCurrentKeysAnchored = 15;
+      case 15: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_datesCurrentKeysAnchored:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 1, 120, input, this->mutable_datescurrentkeysanchored())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_datescurrentkeysanchored())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(120)) goto parse_datesCurrentKeysAnchored;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1225,7 +1515,7 @@ bool publicKey::MergePartialFromCodedStream(
 
 void publicKey::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required string keyLabel = 1;
+  // optional string keyLabel = 1;
   if (has_keylabel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->keylabel().data(), this->keylabel().length(),
@@ -1234,9 +1524,9 @@ void publicKey::SerializeWithCachedSizes(
       1, this->keylabel(), output);
   }
 
-  // optional int32 dateAnchored = 2;
+  // optional int64 dateAnchored = 2;
   if (has_dateanchored()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->dateanchored(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->dateanchored(), output);
   }
 
   // optional string version = 3;
@@ -1248,13 +1538,13 @@ void publicKey::SerializeWithCachedSizes(
       3, this->version(), output);
   }
 
-  // required bytes encrKeyData = 4;
+  // optional bytes encrKeyData = 4;
   if (has_encrkeydata()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
       4, this->encrkeydata(), output);
   }
 
-  // required bytes verKeyData = 5;
+  // optional bytes verKeyData = 5;
   if (has_verkeydata()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
       5, this->verkeydata(), output);
@@ -1287,6 +1577,16 @@ void publicKey::SerializeWithCachedSizes(
       8, this->keyfordeviceswithuuid(i), output);
   }
 
+  // optional bool isCompromised = 11;
+  if (has_iscompromised()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->iscompromised(), output);
+  }
+
+  // optional int64 dateCreated = 12;
+  if (has_datecreated()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->datecreated(), output);
+  }
+
   // repeated string introducesKeys = 13;
   for (int i = 0; i < this->introduceskeys_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1305,6 +1605,12 @@ void publicKey::SerializeWithCachedSizes(
       14, this->isintroducedbykeys(i), output);
   }
 
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  for (int i = 0; i < this->datescurrentkeysanchored_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
+      15, this->datescurrentkeysanchored(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1313,7 +1619,7 @@ void publicKey::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* publicKey::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required string keyLabel = 1;
+  // optional string keyLabel = 1;
   if (has_keylabel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->keylabel().data(), this->keylabel().length(),
@@ -1323,9 +1629,9 @@ void publicKey::SerializeWithCachedSizes(
         1, this->keylabel(), target);
   }
 
-  // optional int32 dateAnchored = 2;
+  // optional int64 dateAnchored = 2;
   if (has_dateanchored()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->dateanchored(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->dateanchored(), target);
   }
 
   // optional string version = 3;
@@ -1338,14 +1644,14 @@ void publicKey::SerializeWithCachedSizes(
         3, this->version(), target);
   }
 
-  // required bytes encrKeyData = 4;
+  // optional bytes encrKeyData = 4;
   if (has_encrkeydata()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         4, this->encrkeydata(), target);
   }
 
-  // required bytes verKeyData = 5;
+  // optional bytes verKeyData = 5;
   if (has_verkeydata()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
@@ -1379,6 +1685,16 @@ void publicKey::SerializeWithCachedSizes(
       WriteStringToArray(8, this->keyfordeviceswithuuid(i), target);
   }
 
+  // optional bool isCompromised = 11;
+  if (has_iscompromised()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->iscompromised(), target);
+  }
+
+  // optional int64 dateCreated = 12;
+  if (has_datecreated()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->datecreated(), target);
+  }
+
   // repeated string introducesKeys = 13;
   for (int i = 0; i < this->introduceskeys_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1397,6 +1713,12 @@ void publicKey::SerializeWithCachedSizes(
       WriteStringToArray(14, this->isintroducedbykeys(i), target);
   }
 
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  for (int i = 0; i < this->datescurrentkeysanchored_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt64ToArray(15, this->datescurrentkeysanchored(i), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1408,17 +1730,17 @@ int publicKey::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string keyLabel = 1;
+    // optional string keyLabel = 1;
     if (has_keylabel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->keylabel());
     }
 
-    // optional int32 dateAnchored = 2;
+    // optional int64 dateAnchored = 2;
     if (has_dateanchored()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->dateanchored());
     }
 
@@ -1429,18 +1751,32 @@ int publicKey::ByteSize() const {
           this->version());
     }
 
-    // required bytes encrKeyData = 4;
+    // optional bytes encrKeyData = 4;
     if (has_encrkeydata()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
           this->encrkeydata());
     }
 
-    // required bytes verKeyData = 5;
+    // optional bytes verKeyData = 5;
     if (has_verkeydata()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
           this->verkeydata());
+    }
+
+  }
+  if (_has_bits_[9 / 32] & (0xffu << (9 % 32))) {
+    // optional bool isCompromised = 11;
+    if (has_iscompromised()) {
+      total_size += 1 + 1;
+    }
+
+    // optional int64 dateCreated = 12;
+    if (has_datecreated()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->datecreated());
     }
 
   }
@@ -1463,6 +1799,16 @@ int publicKey::ByteSize() const {
   for (int i = 0; i < this->keyfordeviceswithuuid_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->keyfordeviceswithuuid(i));
+  }
+
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->datescurrentkeysanchored_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int64Size(this->datescurrentkeysanchored(i));
+    }
+    total_size += 1 * this->datescurrentkeysanchored_size() + data_size;
   }
 
   // repeated string introducesKeys = 13;
@@ -1507,6 +1853,7 @@ void publicKey::MergeFrom(const publicKey& from) {
   currentkeyforemails_.MergeFrom(from.currentkeyforemails_);
   keyforemails_.MergeFrom(from.keyforemails_);
   keyfordeviceswithuuid_.MergeFrom(from.keyfordeviceswithuuid_);
+  datescurrentkeysanchored_.MergeFrom(from.datescurrentkeysanchored_);
   introduceskeys_.MergeFrom(from.introduceskeys_);
   isintroducedbykeys_.MergeFrom(from.isintroducedbykeys_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1526,6 +1873,14 @@ void publicKey::MergeFrom(const publicKey& from) {
       set_verkeydata(from.verkeydata());
     }
   }
+  if (from._has_bits_[9 / 32] & (0xffu << (9 % 32))) {
+    if (from.has_iscompromised()) {
+      set_iscompromised(from.iscompromised());
+    }
+    if (from.has_datecreated()) {
+      set_datecreated(from.datecreated());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -1542,7 +1897,6 @@ void publicKey::CopyFrom(const publicKey& from) {
 }
 
 bool publicKey::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000019) != 0x00000019) return false;
 
   return true;
 }
@@ -1557,6 +1911,9 @@ void publicKey::Swap(publicKey* other) {
     currentkeyforemails_.Swap(&other->currentkeyforemails_);
     keyforemails_.Swap(&other->keyforemails_);
     keyfordeviceswithuuid_.Swap(&other->keyfordeviceswithuuid_);
+    datescurrentkeysanchored_.Swap(&other->datescurrentkeysanchored_);
+    std::swap(iscompromised_, other->iscompromised_);
+    std::swap(datecreated_, other->datecreated_);
     introduceskeys_.Swap(&other->introduceskeys_);
     isintroducedbykeys_.Swap(&other->isintroducedbykeys_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1579,9 +1936,9 @@ void publicKey::Swap(publicKey* other) {
 #ifndef _MSC_VER
 const int keyExpectation::kFromAddressFieldNumber;
 const int keyExpectation::kToAddressFieldNumber;
-const int keyExpectation::kKeyLabelFieldNumber;
-const int keyExpectation::kDateAnchoredFieldNumber;
 const int keyExpectation::kVersionFieldNumber;
+const int keyExpectation::kKeyLabelFieldNumber;
+const int keyExpectation::kDateCreatedFieldNumber;
 #endif  // !_MSC_VER
 
 keyExpectation::keyExpectation()
@@ -1602,9 +1959,9 @@ void keyExpectation::SharedCtor() {
   _cached_size_ = 0;
   fromaddress_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   toaddress_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  dateanchored_ = 0;
   version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  datecreated_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1619,11 +1976,11 @@ void keyExpectation::SharedDtor() {
   if (toaddress_ != &::google::protobuf::internal::kEmptyString) {
     delete toaddress_;
   }
-  if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
-    delete keylabel_;
-  }
   if (version_ != &::google::protobuf::internal::kEmptyString) {
     delete version_;
+  }
+  if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
+    delete keylabel_;
   }
   if (this != default_instance_) {
   }
@@ -1662,17 +2019,17 @@ void keyExpectation::Clear() {
         toaddress_->clear();
       }
     }
-    if (has_keylabel()) {
-      if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
-        keylabel_->clear();
-      }
-    }
-    dateanchored_ = 0;
     if (has_version()) {
       if (version_ != &::google::protobuf::internal::kEmptyString) {
         version_->clear();
       }
     }
+    if (has_keylabel()) {
+      if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
+        keylabel_->clear();
+      }
+    }
+    datecreated_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1713,12 +2070,29 @@ bool keyExpectation::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_keyLabel;
+        if (input->ExpectTag(26)) goto parse_version;
         break;
       }
 
-      // optional string keyLabel = 3;
+      // optional string version = 3;
       case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_version:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_version()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->version().data(), this->version().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_keyLabel;
+        break;
+      }
+
+      // optional string keyLabel = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_keyLabel:
@@ -1730,36 +2104,19 @@ bool keyExpectation::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_dateAnchored;
+        if (input->ExpectTag(40)) goto parse_dateCreated;
         break;
       }
 
-      // optional int32 dateAnchored = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_dateAnchored:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &dateanchored_)));
-          set_has_dateanchored();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_version;
-        break;
-      }
-
-      // optional string version = 5;
+      // optional int64 dateCreated = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_version:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_version()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->version().data(), this->version().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dateCreated:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &datecreated_)));
+          set_has_datecreated();
         } else {
           goto handle_uninterpreted;
         }
@@ -1803,27 +2160,27 @@ void keyExpectation::SerializeWithCachedSizes(
       2, this->toaddress(), output);
   }
 
-  // optional string keyLabel = 3;
-  if (has_keylabel()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->keylabel().data(), this->keylabel().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->keylabel(), output);
-  }
-
-  // optional int32 dateAnchored = 4;
-  if (has_dateanchored()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->dateanchored(), output);
-  }
-
-  // optional string version = 5;
+  // optional string version = 3;
   if (has_version()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->version().data(), this->version().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->version(), output);
+      3, this->version(), output);
+  }
+
+  // optional string keyLabel = 4;
+  if (has_keylabel()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->keylabel().data(), this->keylabel().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->keylabel(), output);
+  }
+
+  // optional int64 dateCreated = 5;
+  if (has_datecreated()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->datecreated(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1854,29 +2211,29 @@ void keyExpectation::SerializeWithCachedSizes(
         2, this->toaddress(), target);
   }
 
-  // optional string keyLabel = 3;
-  if (has_keylabel()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->keylabel().data(), this->keylabel().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->keylabel(), target);
-  }
-
-  // optional int32 dateAnchored = 4;
-  if (has_dateanchored()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->dateanchored(), target);
-  }
-
-  // optional string version = 5;
+  // optional string version = 3;
   if (has_version()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->version().data(), this->version().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->version(), target);
+        3, this->version(), target);
+  }
+
+  // optional string keyLabel = 4;
+  if (has_keylabel()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->keylabel().data(), this->keylabel().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->keylabel(), target);
+  }
+
+  // optional int64 dateCreated = 5;
+  if (has_datecreated()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->datecreated(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1904,25 +2261,25 @@ int keyExpectation::ByteSize() const {
           this->toaddress());
     }
 
-    // optional string keyLabel = 3;
+    // optional string version = 3;
+    if (has_version()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->version());
+    }
+
+    // optional string keyLabel = 4;
     if (has_keylabel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->keylabel());
     }
 
-    // optional int32 dateAnchored = 4;
-    if (has_dateanchored()) {
+    // optional int64 dateCreated = 5;
+    if (has_datecreated()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->dateanchored());
-    }
-
-    // optional string version = 5;
-    if (has_version()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->version());
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->datecreated());
     }
 
   }
@@ -1958,14 +2315,14 @@ void keyExpectation::MergeFrom(const keyExpectation& from) {
     if (from.has_toaddress()) {
       set_toaddress(from.toaddress());
     }
+    if (from.has_version()) {
+      set_version(from.version());
+    }
     if (from.has_keylabel()) {
       set_keylabel(from.keylabel());
     }
-    if (from.has_dateanchored()) {
-      set_dateanchored(from.dateanchored());
-    }
-    if (from.has_version()) {
-      set_version(from.version());
+    if (from.has_datecreated()) {
+      set_datecreated(from.datecreated());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1992,9 +2349,9 @@ void keyExpectation::Swap(keyExpectation* other) {
   if (other != this) {
     std::swap(fromaddress_, other->fromaddress_);
     std::swap(toaddress_, other->toaddress_);
-    std::swap(keylabel_, other->keylabel_);
-    std::swap(dateanchored_, other->dateanchored_);
     std::swap(version_, other->version_);
+    std::swap(keylabel_, other->keylabel_);
+    std::swap(datecreated_, other->datecreated_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2013,70 +2370,80 @@ void keyExpectation::Swap(keyExpectation* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int backupFile::kPrivKeysFieldNumber;
-const int backupFile::kPubKeysFieldNumber;
-const int backupFile::kVersionFieldNumber;
-const int backupFile::kKeyExpectationsFieldNumber;
+const int plainBackupData::kPrivKeysFieldNumber;
+const int plainBackupData::kPubKeysFieldNumber;
+const int plainBackupData::kVersionFieldNumber;
+const int plainBackupData::kKeyExpectationsFieldNumber;
+const int plainBackupData::kIntegrityCheckStringFieldNumber;
 #endif  // !_MSC_VER
 
-backupFile::backupFile()
+plainBackupData::plainBackupData()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void backupFile::InitAsDefaultInstance() {
+void plainBackupData::InitAsDefaultInstance() {
 }
 
-backupFile::backupFile(const backupFile& from)
+plainBackupData::plainBackupData(const plainBackupData& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void backupFile::SharedCtor() {
+void plainBackupData::SharedCtor() {
   _cached_size_ = 0;
   version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  integritycheckstring_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-backupFile::~backupFile() {
+plainBackupData::~plainBackupData() {
   SharedDtor();
 }
 
-void backupFile::SharedDtor() {
+void plainBackupData::SharedDtor() {
   if (version_ != &::google::protobuf::internal::kEmptyString) {
     delete version_;
+  }
+  if (integritycheckstring_ != &::google::protobuf::internal::kEmptyString) {
+    delete integritycheckstring_;
   }
   if (this != default_instance_) {
   }
 }
 
-void backupFile::SetCachedSize(int size) const {
+void plainBackupData::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* backupFile::descriptor() {
+const ::google::protobuf::Descriptor* plainBackupData::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return backupFile_descriptor_;
+  return plainBackupData_descriptor_;
 }
 
-const backupFile& backupFile::default_instance() {
+const plainBackupData& plainBackupData::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_backupData_2eproto();
   return *default_instance_;
 }
 
-backupFile* backupFile::default_instance_ = NULL;
+plainBackupData* plainBackupData::default_instance_ = NULL;
 
-backupFile* backupFile::New() const {
-  return new backupFile;
+plainBackupData* plainBackupData::New() const {
+  return new plainBackupData;
 }
 
-void backupFile::Clear() {
+void plainBackupData::Clear() {
   if (_has_bits_[2 / 32] & (0xffu << (2 % 32))) {
     if (has_version()) {
       if (version_ != &::google::protobuf::internal::kEmptyString) {
         version_->clear();
+      }
+    }
+    if (has_integritycheckstring()) {
+      if (integritycheckstring_ != &::google::protobuf::internal::kEmptyString) {
+        integritycheckstring_->clear();
       }
     }
   }
@@ -2087,7 +2454,7 @@ void backupFile::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool backupFile::MergePartialFromCodedStream(
+bool plainBackupData::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -2151,6 +2518,23 @@ bool backupFile::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(34)) goto parse_keyExpectations;
+        if (input->ExpectTag(42)) goto parse_integrityCheckString;
+        break;
+      }
+
+      // optional string integrityCheckString = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_integrityCheckString:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_integritycheckstring()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->integritycheckstring().data(), this->integritycheckstring().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2171,7 +2555,7 @@ bool backupFile::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void backupFile::SerializeWithCachedSizes(
+void plainBackupData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated .mynigma.privateKey privKeys = 1;
   for (int i = 0; i < this->privkeys_size(); i++) {
@@ -2200,13 +2584,22 @@ void backupFile::SerializeWithCachedSizes(
       4, this->keyexpectations(i), output);
   }
 
+  // optional string integrityCheckString = 5;
+  if (has_integritycheckstring()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->integritycheckstring().data(), this->integritycheckstring().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->integritycheckstring(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
 }
 
-::google::protobuf::uint8* backupFile::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* plainBackupData::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // repeated .mynigma.privateKey privKeys = 1;
   for (int i = 0; i < this->privkeys_size(); i++) {
@@ -2239,6 +2632,16 @@ void backupFile::SerializeWithCachedSizes(
         4, this->keyexpectations(i), target);
   }
 
+  // optional string integrityCheckString = 5;
+  if (has_integritycheckstring()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->integritycheckstring().data(), this->integritycheckstring().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->integritycheckstring(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -2246,7 +2649,7 @@ void backupFile::SerializeWithCachedSizes(
   return target;
 }
 
-int backupFile::ByteSize() const {
+int plainBackupData::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[2 / 32] & (0xffu << (2 % 32))) {
@@ -2255,6 +2658,13 @@ int backupFile::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->version());
+    }
+
+    // optional string integrityCheckString = 5;
+    if (has_integritycheckstring()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->integritycheckstring());
     }
 
   }
@@ -2293,10 +2703,10 @@ int backupFile::ByteSize() const {
   return total_size;
 }
 
-void backupFile::MergeFrom(const ::google::protobuf::Message& from) {
+void plainBackupData::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const backupFile* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const backupFile*>(
+  const plainBackupData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const plainBackupData*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2305,7 +2715,7 @@ void backupFile::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void backupFile::MergeFrom(const backupFile& from) {
+void plainBackupData::MergeFrom(const plainBackupData& from) {
   GOOGLE_CHECK_NE(&from, this);
   privkeys_.MergeFrom(from.privkeys_);
   pubkeys_.MergeFrom(from.pubkeys_);
@@ -2314,50 +2724,407 @@ void backupFile::MergeFrom(const backupFile& from) {
     if (from.has_version()) {
       set_version(from.version());
     }
+    if (from.has_integritycheckstring()) {
+      set_integritycheckstring(from.integritycheckstring());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void backupFile::CopyFrom(const ::google::protobuf::Message& from) {
+void plainBackupData::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void backupFile::CopyFrom(const backupFile& from) {
+void plainBackupData::CopyFrom(const plainBackupData& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool backupFile::IsInitialized() const {
+bool plainBackupData::IsInitialized() const {
 
-  for (int i = 0; i < privkeys_size(); i++) {
-    if (!this->privkeys(i).IsInitialized()) return false;
-  }
-  for (int i = 0; i < pubkeys_size(); i++) {
-    if (!this->pubkeys(i).IsInitialized()) return false;
-  }
   return true;
 }
 
-void backupFile::Swap(backupFile* other) {
+void plainBackupData::Swap(plainBackupData* other) {
   if (other != this) {
     privkeys_.Swap(&other->privkeys_);
     pubkeys_.Swap(&other->pubkeys_);
     std::swap(version_, other->version_);
     keyexpectations_.Swap(&other->keyexpectations_);
+    std::swap(integritycheckstring_, other->integritycheckstring_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata backupFile::GetMetadata() const {
+::google::protobuf::Metadata plainBackupData::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = backupFile_descriptor_;
-  metadata.reflection = backupFile_reflection_;
+  metadata.descriptor = plainBackupData_descriptor_;
+  metadata.reflection = plainBackupData_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int backupPasswordFileWrapper::kPayloadDataFieldNumber;
+const int backupPasswordFileWrapper::kHasPasswordFieldNumber;
+const int backupPasswordFileWrapper::kVersionFieldNumber;
+const int backupPasswordFileWrapper::kPasswordSaltFieldNumber;
+#endif  // !_MSC_VER
+
+backupPasswordFileWrapper::backupPasswordFileWrapper()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void backupPasswordFileWrapper::InitAsDefaultInstance() {
+}
+
+backupPasswordFileWrapper::backupPasswordFileWrapper(const backupPasswordFileWrapper& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void backupPasswordFileWrapper::SharedCtor() {
+  _cached_size_ = 0;
+  payloaddata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  haspassword_ = false;
+  version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  passwordsalt_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+backupPasswordFileWrapper::~backupPasswordFileWrapper() {
+  SharedDtor();
+}
+
+void backupPasswordFileWrapper::SharedDtor() {
+  if (payloaddata_ != &::google::protobuf::internal::kEmptyString) {
+    delete payloaddata_;
+  }
+  if (version_ != &::google::protobuf::internal::kEmptyString) {
+    delete version_;
+  }
+  if (passwordsalt_ != &::google::protobuf::internal::kEmptyString) {
+    delete passwordsalt_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void backupPasswordFileWrapper::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* backupPasswordFileWrapper::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return backupPasswordFileWrapper_descriptor_;
+}
+
+const backupPasswordFileWrapper& backupPasswordFileWrapper::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_backupData_2eproto();
+  return *default_instance_;
+}
+
+backupPasswordFileWrapper* backupPasswordFileWrapper::default_instance_ = NULL;
+
+backupPasswordFileWrapper* backupPasswordFileWrapper::New() const {
+  return new backupPasswordFileWrapper;
+}
+
+void backupPasswordFileWrapper::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_payloaddata()) {
+      if (payloaddata_ != &::google::protobuf::internal::kEmptyString) {
+        payloaddata_->clear();
+      }
+    }
+    haspassword_ = false;
+    if (has_version()) {
+      if (version_ != &::google::protobuf::internal::kEmptyString) {
+        version_->clear();
+      }
+    }
+    if (has_passwordsalt()) {
+      if (passwordsalt_ != &::google::protobuf::internal::kEmptyString) {
+        passwordsalt_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool backupPasswordFileWrapper::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bytes payloadData = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_payloaddata()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_hasPassword;
+        break;
+      }
+
+      // optional bool hasPassword = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_hasPassword:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &haspassword_)));
+          set_has_haspassword();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_version;
+        break;
+      }
+
+      // optional string version = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_version:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_version()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->version().data(), this->version().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(50)) goto parse_passwordSalt;
+        break;
+      }
+
+      // optional bytes passwordSalt = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_passwordSalt:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_passwordsalt()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void backupPasswordFileWrapper::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional bytes payloadData = 1;
+  if (has_payloaddata()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      1, this->payloaddata(), output);
+  }
+
+  // optional bool hasPassword = 2;
+  if (has_haspassword()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->haspassword(), output);
+  }
+
+  // optional string version = 3;
+  if (has_version()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->version().data(), this->version().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->version(), output);
+  }
+
+  // optional bytes passwordSalt = 6;
+  if (has_passwordsalt()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      6, this->passwordsalt(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* backupPasswordFileWrapper::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional bytes payloadData = 1;
+  if (has_payloaddata()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->payloaddata(), target);
+  }
+
+  // optional bool hasPassword = 2;
+  if (has_haspassword()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->haspassword(), target);
+  }
+
+  // optional string version = 3;
+  if (has_version()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->version().data(), this->version().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->version(), target);
+  }
+
+  // optional bytes passwordSalt = 6;
+  if (has_passwordsalt()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        6, this->passwordsalt(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int backupPasswordFileWrapper::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional bytes payloadData = 1;
+    if (has_payloaddata()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->payloaddata());
+    }
+
+    // optional bool hasPassword = 2;
+    if (has_haspassword()) {
+      total_size += 1 + 1;
+    }
+
+    // optional string version = 3;
+    if (has_version()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->version());
+    }
+
+    // optional bytes passwordSalt = 6;
+    if (has_passwordsalt()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->passwordsalt());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void backupPasswordFileWrapper::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const backupPasswordFileWrapper* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const backupPasswordFileWrapper*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void backupPasswordFileWrapper::MergeFrom(const backupPasswordFileWrapper& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_payloaddata()) {
+      set_payloaddata(from.payloaddata());
+    }
+    if (from.has_haspassword()) {
+      set_haspassword(from.haspassword());
+    }
+    if (from.has_version()) {
+      set_version(from.version());
+    }
+    if (from.has_passwordsalt()) {
+      set_passwordsalt(from.passwordsalt());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void backupPasswordFileWrapper::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void backupPasswordFileWrapper::CopyFrom(const backupPasswordFileWrapper& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool backupPasswordFileWrapper::IsInitialized() const {
+
+  return true;
+}
+
+void backupPasswordFileWrapper::Swap(backupPasswordFileWrapper* other) {
+  if (other != this) {
+    std::swap(payloaddata_, other->payloaddata_);
+    std::swap(haspassword_, other->haspassword_);
+    std::swap(version_, other->version_);
+    std::swap(passwordsalt_, other->passwordsalt_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata backupPasswordFileWrapper::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = backupPasswordFileWrapper_descriptor_;
+  metadata.reflection = backupPasswordFileWrapper_reflection_;
   return metadata;
 }
 

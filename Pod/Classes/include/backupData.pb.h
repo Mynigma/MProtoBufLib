@@ -36,7 +36,8 @@ void protobuf_ShutdownFile_backupData_2eproto();
 class privateKey;
 class publicKey;
 class keyExpectation;
-class backupFile;
+class plainBackupData;
+class backupPasswordFileWrapper;
 
 // ===================================================================
 
@@ -94,7 +95,7 @@ class privateKey : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required string keyLabel = 1;
+  // optional string keyLabel = 1;
   inline bool has_keylabel() const;
   inline void clear_keylabel();
   static const int kKeyLabelFieldNumber = 1;
@@ -106,12 +107,12 @@ class privateKey : public ::google::protobuf::Message {
   inline ::std::string* release_keylabel();
   inline void set_allocated_keylabel(::std::string* keylabel);
 
-  // optional int32 dateAnchored = 2;
+  // optional int64 dateAnchored = 2;
   inline bool has_dateanchored() const;
   inline void clear_dateanchored();
   static const int kDateAnchoredFieldNumber = 2;
-  inline ::google::protobuf::int32 dateanchored() const;
-  inline void set_dateanchored(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 dateanchored() const;
+  inline void set_dateanchored(::google::protobuf::int64 value);
 
   // optional string version = 3;
   inline bool has_version() const;
@@ -197,7 +198,19 @@ class privateKey : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& keyfordeviceswithuuid() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_keyfordeviceswithuuid();
 
-  // required bytes decrKeyData = 9;
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  inline int datescurrentkeysanchored_size() const;
+  inline void clear_datescurrentkeysanchored();
+  static const int kDatesCurrentKeysAnchoredFieldNumber = 15;
+  inline ::google::protobuf::int64 datescurrentkeysanchored(int index) const;
+  inline void set_datescurrentkeysanchored(int index, ::google::protobuf::int64 value);
+  inline void add_datescurrentkeysanchored(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      datescurrentkeysanchored() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_datescurrentkeysanchored();
+
+  // optional bytes decrKeyData = 9;
   inline bool has_decrkeydata() const;
   inline void clear_decrkeydata();
   static const int kDecrKeyDataFieldNumber = 9;
@@ -209,7 +222,7 @@ class privateKey : public ::google::protobuf::Message {
   inline ::std::string* release_decrkeydata();
   inline void set_allocated_decrkeydata(::std::string* decrkeydata);
 
-  // required bytes signKeyData = 10;
+  // optional bytes signKeyData = 10;
   inline bool has_signkeydata() const;
   inline void clear_signkeydata();
   static const int kSignKeyDataFieldNumber = 10;
@@ -227,6 +240,45 @@ class privateKey : public ::google::protobuf::Message {
   static const int kIsCompromisedFieldNumber = 11;
   inline bool iscompromised() const;
   inline void set_iscompromised(bool value);
+
+  // optional int64 dateCreated = 12;
+  inline bool has_datecreated() const;
+  inline void clear_datecreated();
+  static const int kDateCreatedFieldNumber = 12;
+  inline ::google::protobuf::int64 datecreated() const;
+  inline void set_datecreated(::google::protobuf::int64 value);
+
+  // repeated string introducesKeys = 13;
+  inline int introduceskeys_size() const;
+  inline void clear_introduceskeys();
+  static const int kIntroducesKeysFieldNumber = 13;
+  inline const ::std::string& introduceskeys(int index) const;
+  inline ::std::string* mutable_introduceskeys(int index);
+  inline void set_introduceskeys(int index, const ::std::string& value);
+  inline void set_introduceskeys(int index, const char* value);
+  inline void set_introduceskeys(int index, const char* value, size_t size);
+  inline ::std::string* add_introduceskeys();
+  inline void add_introduceskeys(const ::std::string& value);
+  inline void add_introduceskeys(const char* value);
+  inline void add_introduceskeys(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& introduceskeys() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_introduceskeys();
+
+  // repeated string isIntroducedByKeys = 14;
+  inline int isintroducedbykeys_size() const;
+  inline void clear_isintroducedbykeys();
+  static const int kIsIntroducedByKeysFieldNumber = 14;
+  inline const ::std::string& isintroducedbykeys(int index) const;
+  inline ::std::string* mutable_isintroducedbykeys(int index);
+  inline void set_isintroducedbykeys(int index, const ::std::string& value);
+  inline void set_isintroducedbykeys(int index, const char* value);
+  inline void set_isintroducedbykeys(int index, const char* value, size_t size);
+  inline ::std::string* add_isintroducedbykeys();
+  inline void add_isintroducedbykeys(const ::std::string& value);
+  inline void add_isintroducedbykeys(const char* value);
+  inline void add_isintroducedbykeys(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& isintroducedbykeys() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_isintroducedbykeys();
 
   // @@protoc_insertion_point(class_scope:mynigma.privateKey)
  private:
@@ -246,23 +298,29 @@ class privateKey : public ::google::protobuf::Message {
   inline void clear_has_signkeydata();
   inline void set_has_iscompromised();
   inline void clear_has_iscompromised();
+  inline void set_has_datecreated();
+  inline void clear_has_datecreated();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* keylabel_;
+  ::google::protobuf::int64 dateanchored_;
   ::std::string* version_;
   ::std::string* encrkeydata_;
   ::std::string* verkeydata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> currentkeyforemails_;
-  ::google::protobuf::int32 dateanchored_;
-  bool iscompromised_;
   ::google::protobuf::RepeatedPtrField< ::std::string> keyforemails_;
   ::google::protobuf::RepeatedPtrField< ::std::string> keyfordeviceswithuuid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > datescurrentkeysanchored_;
   ::std::string* decrkeydata_;
   ::std::string* signkeydata_;
+  ::google::protobuf::int64 datecreated_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> introduceskeys_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> isintroducedbykeys_;
+  bool iscompromised_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(15 + 31) / 32];
 
   friend void  protobuf_AddDesc_backupData_2eproto();
   friend void protobuf_AssignDesc_backupData_2eproto();
@@ -327,7 +385,7 @@ class publicKey : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required string keyLabel = 1;
+  // optional string keyLabel = 1;
   inline bool has_keylabel() const;
   inline void clear_keylabel();
   static const int kKeyLabelFieldNumber = 1;
@@ -339,12 +397,12 @@ class publicKey : public ::google::protobuf::Message {
   inline ::std::string* release_keylabel();
   inline void set_allocated_keylabel(::std::string* keylabel);
 
-  // optional int32 dateAnchored = 2;
+  // optional int64 dateAnchored = 2;
   inline bool has_dateanchored() const;
   inline void clear_dateanchored();
   static const int kDateAnchoredFieldNumber = 2;
-  inline ::google::protobuf::int32 dateanchored() const;
-  inline void set_dateanchored(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 dateanchored() const;
+  inline void set_dateanchored(::google::protobuf::int64 value);
 
   // optional string version = 3;
   inline bool has_version() const;
@@ -358,7 +416,7 @@ class publicKey : public ::google::protobuf::Message {
   inline ::std::string* release_version();
   inline void set_allocated_version(::std::string* version);
 
-  // required bytes encrKeyData = 4;
+  // optional bytes encrKeyData = 4;
   inline bool has_encrkeydata() const;
   inline void clear_encrkeydata();
   static const int kEncrKeyDataFieldNumber = 4;
@@ -370,7 +428,7 @@ class publicKey : public ::google::protobuf::Message {
   inline ::std::string* release_encrkeydata();
   inline void set_allocated_encrkeydata(::std::string* encrkeydata);
 
-  // required bytes verKeyData = 5;
+  // optional bytes verKeyData = 5;
   inline bool has_verkeydata() const;
   inline void clear_verkeydata();
   static const int kVerKeyDataFieldNumber = 5;
@@ -430,6 +488,32 @@ class publicKey : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& keyfordeviceswithuuid() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_keyfordeviceswithuuid();
 
+  // repeated int64 datesCurrentKeysAnchored = 15;
+  inline int datescurrentkeysanchored_size() const;
+  inline void clear_datescurrentkeysanchored();
+  static const int kDatesCurrentKeysAnchoredFieldNumber = 15;
+  inline ::google::protobuf::int64 datescurrentkeysanchored(int index) const;
+  inline void set_datescurrentkeysanchored(int index, ::google::protobuf::int64 value);
+  inline void add_datescurrentkeysanchored(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      datescurrentkeysanchored() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_datescurrentkeysanchored();
+
+  // optional bool isCompromised = 11;
+  inline bool has_iscompromised() const;
+  inline void clear_iscompromised();
+  static const int kIsCompromisedFieldNumber = 11;
+  inline bool iscompromised() const;
+  inline void set_iscompromised(bool value);
+
+  // optional int64 dateCreated = 12;
+  inline bool has_datecreated() const;
+  inline void clear_datecreated();
+  static const int kDateCreatedFieldNumber = 12;
+  inline ::google::protobuf::int64 datecreated() const;
+  inline void set_datecreated(::google::protobuf::int64 value);
+
   // repeated string introducesKeys = 13;
   inline int introduceskeys_size() const;
   inline void clear_introduceskeys();
@@ -474,22 +558,29 @@ class publicKey : public ::google::protobuf::Message {
   inline void clear_has_encrkeydata();
   inline void set_has_verkeydata();
   inline void clear_has_verkeydata();
+  inline void set_has_iscompromised();
+  inline void clear_has_iscompromised();
+  inline void set_has_datecreated();
+  inline void clear_has_datecreated();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* keylabel_;
+  ::google::protobuf::int64 dateanchored_;
   ::std::string* version_;
   ::std::string* encrkeydata_;
   ::std::string* verkeydata_;
   ::google::protobuf::RepeatedPtrField< ::std::string> currentkeyforemails_;
   ::google::protobuf::RepeatedPtrField< ::std::string> keyforemails_;
   ::google::protobuf::RepeatedPtrField< ::std::string> keyfordeviceswithuuid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > datescurrentkeysanchored_;
+  ::google::protobuf::int64 datecreated_;
   ::google::protobuf::RepeatedPtrField< ::std::string> introduceskeys_;
   ::google::protobuf::RepeatedPtrField< ::std::string> isintroducedbykeys_;
-  ::google::protobuf::int32 dateanchored_;
+  bool iscompromised_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
 
   friend void  protobuf_AddDesc_backupData_2eproto();
   friend void protobuf_AssignDesc_backupData_2eproto();
@@ -578,29 +669,10 @@ class keyExpectation : public ::google::protobuf::Message {
   inline ::std::string* release_toaddress();
   inline void set_allocated_toaddress(::std::string* toaddress);
 
-  // optional string keyLabel = 3;
-  inline bool has_keylabel() const;
-  inline void clear_keylabel();
-  static const int kKeyLabelFieldNumber = 3;
-  inline const ::std::string& keylabel() const;
-  inline void set_keylabel(const ::std::string& value);
-  inline void set_keylabel(const char* value);
-  inline void set_keylabel(const char* value, size_t size);
-  inline ::std::string* mutable_keylabel();
-  inline ::std::string* release_keylabel();
-  inline void set_allocated_keylabel(::std::string* keylabel);
-
-  // optional int32 dateAnchored = 4;
-  inline bool has_dateanchored() const;
-  inline void clear_dateanchored();
-  static const int kDateAnchoredFieldNumber = 4;
-  inline ::google::protobuf::int32 dateanchored() const;
-  inline void set_dateanchored(::google::protobuf::int32 value);
-
-  // optional string version = 5;
+  // optional string version = 3;
   inline bool has_version() const;
   inline void clear_version();
-  static const int kVersionFieldNumber = 5;
+  static const int kVersionFieldNumber = 3;
   inline const ::std::string& version() const;
   inline void set_version(const ::std::string& value);
   inline void set_version(const char* value);
@@ -609,26 +681,45 @@ class keyExpectation : public ::google::protobuf::Message {
   inline ::std::string* release_version();
   inline void set_allocated_version(::std::string* version);
 
+  // optional string keyLabel = 4;
+  inline bool has_keylabel() const;
+  inline void clear_keylabel();
+  static const int kKeyLabelFieldNumber = 4;
+  inline const ::std::string& keylabel() const;
+  inline void set_keylabel(const ::std::string& value);
+  inline void set_keylabel(const char* value);
+  inline void set_keylabel(const char* value, size_t size);
+  inline ::std::string* mutable_keylabel();
+  inline ::std::string* release_keylabel();
+  inline void set_allocated_keylabel(::std::string* keylabel);
+
+  // optional int64 dateCreated = 5;
+  inline bool has_datecreated() const;
+  inline void clear_datecreated();
+  static const int kDateCreatedFieldNumber = 5;
+  inline ::google::protobuf::int64 datecreated() const;
+  inline void set_datecreated(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:mynigma.keyExpectation)
  private:
   inline void set_has_fromaddress();
   inline void clear_has_fromaddress();
   inline void set_has_toaddress();
   inline void clear_has_toaddress();
-  inline void set_has_keylabel();
-  inline void clear_has_keylabel();
-  inline void set_has_dateanchored();
-  inline void clear_has_dateanchored();
   inline void set_has_version();
   inline void clear_has_version();
+  inline void set_has_keylabel();
+  inline void clear_has_keylabel();
+  inline void set_has_datecreated();
+  inline void clear_has_datecreated();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* fromaddress_;
   ::std::string* toaddress_;
-  ::std::string* keylabel_;
   ::std::string* version_;
-  ::google::protobuf::int32 dateanchored_;
+  ::std::string* keylabel_;
+  ::google::protobuf::int64 datecreated_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -642,14 +733,14 @@ class keyExpectation : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class backupFile : public ::google::protobuf::Message {
+class plainBackupData : public ::google::protobuf::Message {
  public:
-  backupFile();
-  virtual ~backupFile();
+  plainBackupData();
+  virtual ~plainBackupData();
 
-  backupFile(const backupFile& from);
+  plainBackupData(const plainBackupData& from);
 
-  inline backupFile& operator=(const backupFile& from) {
+  inline plainBackupData& operator=(const plainBackupData& from) {
     CopyFrom(from);
     return *this;
   }
@@ -663,17 +754,17 @@ class backupFile : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const backupFile& default_instance();
+  static const plainBackupData& default_instance();
 
-  void Swap(backupFile* other);
+  void Swap(plainBackupData* other);
 
   // implements Message ----------------------------------------------
 
-  backupFile* New() const;
+  plainBackupData* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const backupFile& from);
-  void MergeFrom(const backupFile& from);
+  void CopyFrom(const plainBackupData& from);
+  void MergeFrom(const plainBackupData& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -744,10 +835,24 @@ class backupFile : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::mynigma::keyExpectation >*
       mutable_keyexpectations();
 
-  // @@protoc_insertion_point(class_scope:mynigma.backupFile)
+  // optional string integrityCheckString = 5;
+  inline bool has_integritycheckstring() const;
+  inline void clear_integritycheckstring();
+  static const int kIntegrityCheckStringFieldNumber = 5;
+  inline const ::std::string& integritycheckstring() const;
+  inline void set_integritycheckstring(const ::std::string& value);
+  inline void set_integritycheckstring(const char* value);
+  inline void set_integritycheckstring(const char* value, size_t size);
+  inline ::std::string* mutable_integritycheckstring();
+  inline ::std::string* release_integritycheckstring();
+  inline void set_allocated_integritycheckstring(::std::string* integritycheckstring);
+
+  // @@protoc_insertion_point(class_scope:mynigma.plainBackupData)
  private:
   inline void set_has_version();
   inline void clear_has_version();
+  inline void set_has_integritycheckstring();
+  inline void clear_has_integritycheckstring();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -755,6 +860,134 @@ class backupFile : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::mynigma::publicKey > pubkeys_;
   ::std::string* version_;
   ::google::protobuf::RepeatedPtrField< ::mynigma::keyExpectation > keyexpectations_;
+  ::std::string* integritycheckstring_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_backupData_2eproto();
+  friend void protobuf_AssignDesc_backupData_2eproto();
+  friend void protobuf_ShutdownFile_backupData_2eproto();
+
+  void InitAsDefaultInstance();
+  static plainBackupData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class backupPasswordFileWrapper : public ::google::protobuf::Message {
+ public:
+  backupPasswordFileWrapper();
+  virtual ~backupPasswordFileWrapper();
+
+  backupPasswordFileWrapper(const backupPasswordFileWrapper& from);
+
+  inline backupPasswordFileWrapper& operator=(const backupPasswordFileWrapper& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const backupPasswordFileWrapper& default_instance();
+
+  void Swap(backupPasswordFileWrapper* other);
+
+  // implements Message ----------------------------------------------
+
+  backupPasswordFileWrapper* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const backupPasswordFileWrapper& from);
+  void MergeFrom(const backupPasswordFileWrapper& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bytes payloadData = 1;
+  inline bool has_payloaddata() const;
+  inline void clear_payloaddata();
+  static const int kPayloadDataFieldNumber = 1;
+  inline const ::std::string& payloaddata() const;
+  inline void set_payloaddata(const ::std::string& value);
+  inline void set_payloaddata(const char* value);
+  inline void set_payloaddata(const void* value, size_t size);
+  inline ::std::string* mutable_payloaddata();
+  inline ::std::string* release_payloaddata();
+  inline void set_allocated_payloaddata(::std::string* payloaddata);
+
+  // optional bool hasPassword = 2;
+  inline bool has_haspassword() const;
+  inline void clear_haspassword();
+  static const int kHasPasswordFieldNumber = 2;
+  inline bool haspassword() const;
+  inline void set_haspassword(bool value);
+
+  // optional string version = 3;
+  inline bool has_version() const;
+  inline void clear_version();
+  static const int kVersionFieldNumber = 3;
+  inline const ::std::string& version() const;
+  inline void set_version(const ::std::string& value);
+  inline void set_version(const char* value);
+  inline void set_version(const char* value, size_t size);
+  inline ::std::string* mutable_version();
+  inline ::std::string* release_version();
+  inline void set_allocated_version(::std::string* version);
+
+  // optional bytes passwordSalt = 6;
+  inline bool has_passwordsalt() const;
+  inline void clear_passwordsalt();
+  static const int kPasswordSaltFieldNumber = 6;
+  inline const ::std::string& passwordsalt() const;
+  inline void set_passwordsalt(const ::std::string& value);
+  inline void set_passwordsalt(const char* value);
+  inline void set_passwordsalt(const void* value, size_t size);
+  inline ::std::string* mutable_passwordsalt();
+  inline ::std::string* release_passwordsalt();
+  inline void set_allocated_passwordsalt(::std::string* passwordsalt);
+
+  // @@protoc_insertion_point(class_scope:mynigma.backupPasswordFileWrapper)
+ private:
+  inline void set_has_payloaddata();
+  inline void clear_has_payloaddata();
+  inline void set_has_haspassword();
+  inline void clear_has_haspassword();
+  inline void set_has_version();
+  inline void clear_has_version();
+  inline void set_has_passwordsalt();
+  inline void clear_has_passwordsalt();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* payloaddata_;
+  ::std::string* version_;
+  ::std::string* passwordsalt_;
+  bool haspassword_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -764,7 +997,7 @@ class backupFile : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_backupData_2eproto();
 
   void InitAsDefaultInstance();
-  static backupFile* default_instance_;
+  static backupPasswordFileWrapper* default_instance_;
 };
 // ===================================================================
 
@@ -773,7 +1006,7 @@ class backupFile : public ::google::protobuf::Message {
 
 // privateKey
 
-// required string keyLabel = 1;
+// optional string keyLabel = 1;
 inline bool privateKey::has_keylabel() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -843,7 +1076,7 @@ inline void privateKey::set_allocated_keylabel(::std::string* keylabel) {
   }
 }
 
-// optional int32 dateAnchored = 2;
+// optional int64 dateAnchored = 2;
 inline bool privateKey::has_dateanchored() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -854,13 +1087,13 @@ inline void privateKey::clear_has_dateanchored() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void privateKey::clear_dateanchored() {
-  dateanchored_ = 0;
+  dateanchored_ = GOOGLE_LONGLONG(0);
   clear_has_dateanchored();
 }
-inline ::google::protobuf::int32 privateKey::dateanchored() const {
+inline ::google::protobuf::int64 privateKey::dateanchored() const {
   return dateanchored_;
 }
-inline void privateKey::set_dateanchored(::google::protobuf::int32 value) {
+inline void privateKey::set_dateanchored(::google::protobuf::int64 value) {
   set_has_dateanchored();
   dateanchored_ = value;
 }
@@ -1207,15 +1440,40 @@ privateKey::mutable_keyfordeviceswithuuid() {
   return &keyfordeviceswithuuid_;
 }
 
-// required bytes decrKeyData = 9;
+// repeated int64 datesCurrentKeysAnchored = 15;
+inline int privateKey::datescurrentkeysanchored_size() const {
+  return datescurrentkeysanchored_.size();
+}
+inline void privateKey::clear_datescurrentkeysanchored() {
+  datescurrentkeysanchored_.Clear();
+}
+inline ::google::protobuf::int64 privateKey::datescurrentkeysanchored(int index) const {
+  return datescurrentkeysanchored_.Get(index);
+}
+inline void privateKey::set_datescurrentkeysanchored(int index, ::google::protobuf::int64 value) {
+  datescurrentkeysanchored_.Set(index, value);
+}
+inline void privateKey::add_datescurrentkeysanchored(::google::protobuf::int64 value) {
+  datescurrentkeysanchored_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+privateKey::datescurrentkeysanchored() const {
+  return datescurrentkeysanchored_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+privateKey::mutable_datescurrentkeysanchored() {
+  return &datescurrentkeysanchored_;
+}
+
+// optional bytes decrKeyData = 9;
 inline bool privateKey::has_decrkeydata() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void privateKey::set_has_decrkeydata() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void privateKey::clear_has_decrkeydata() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void privateKey::clear_decrkeydata() {
   if (decrkeydata_ != &::google::protobuf::internal::kEmptyString) {
@@ -1277,15 +1535,15 @@ inline void privateKey::set_allocated_decrkeydata(::std::string* decrkeydata) {
   }
 }
 
-// required bytes signKeyData = 10;
+// optional bytes signKeyData = 10;
 inline bool privateKey::has_signkeydata() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void privateKey::set_has_signkeydata() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void privateKey::clear_has_signkeydata() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void privateKey::clear_signkeydata() {
   if (signkeydata_ != &::google::protobuf::internal::kEmptyString) {
@@ -1349,13 +1607,13 @@ inline void privateKey::set_allocated_signkeydata(::std::string* signkeydata) {
 
 // optional bool isCompromised = 11;
 inline bool privateKey::has_iscompromised() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void privateKey::set_has_iscompromised() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void privateKey::clear_has_iscompromised() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void privateKey::clear_iscompromised() {
   iscompromised_ = false;
@@ -1369,11 +1627,121 @@ inline void privateKey::set_iscompromised(bool value) {
   iscompromised_ = value;
 }
 
+// optional int64 dateCreated = 12;
+inline bool privateKey::has_datecreated() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void privateKey::set_has_datecreated() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void privateKey::clear_has_datecreated() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void privateKey::clear_datecreated() {
+  datecreated_ = GOOGLE_LONGLONG(0);
+  clear_has_datecreated();
+}
+inline ::google::protobuf::int64 privateKey::datecreated() const {
+  return datecreated_;
+}
+inline void privateKey::set_datecreated(::google::protobuf::int64 value) {
+  set_has_datecreated();
+  datecreated_ = value;
+}
+
+// repeated string introducesKeys = 13;
+inline int privateKey::introduceskeys_size() const {
+  return introduceskeys_.size();
+}
+inline void privateKey::clear_introduceskeys() {
+  introduceskeys_.Clear();
+}
+inline const ::std::string& privateKey::introduceskeys(int index) const {
+  return introduceskeys_.Get(index);
+}
+inline ::std::string* privateKey::mutable_introduceskeys(int index) {
+  return introduceskeys_.Mutable(index);
+}
+inline void privateKey::set_introduceskeys(int index, const ::std::string& value) {
+  introduceskeys_.Mutable(index)->assign(value);
+}
+inline void privateKey::set_introduceskeys(int index, const char* value) {
+  introduceskeys_.Mutable(index)->assign(value);
+}
+inline void privateKey::set_introduceskeys(int index, const char* value, size_t size) {
+  introduceskeys_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* privateKey::add_introduceskeys() {
+  return introduceskeys_.Add();
+}
+inline void privateKey::add_introduceskeys(const ::std::string& value) {
+  introduceskeys_.Add()->assign(value);
+}
+inline void privateKey::add_introduceskeys(const char* value) {
+  introduceskeys_.Add()->assign(value);
+}
+inline void privateKey::add_introduceskeys(const char* value, size_t size) {
+  introduceskeys_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+privateKey::introduceskeys() const {
+  return introduceskeys_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+privateKey::mutable_introduceskeys() {
+  return &introduceskeys_;
+}
+
+// repeated string isIntroducedByKeys = 14;
+inline int privateKey::isintroducedbykeys_size() const {
+  return isintroducedbykeys_.size();
+}
+inline void privateKey::clear_isintroducedbykeys() {
+  isintroducedbykeys_.Clear();
+}
+inline const ::std::string& privateKey::isintroducedbykeys(int index) const {
+  return isintroducedbykeys_.Get(index);
+}
+inline ::std::string* privateKey::mutable_isintroducedbykeys(int index) {
+  return isintroducedbykeys_.Mutable(index);
+}
+inline void privateKey::set_isintroducedbykeys(int index, const ::std::string& value) {
+  isintroducedbykeys_.Mutable(index)->assign(value);
+}
+inline void privateKey::set_isintroducedbykeys(int index, const char* value) {
+  isintroducedbykeys_.Mutable(index)->assign(value);
+}
+inline void privateKey::set_isintroducedbykeys(int index, const char* value, size_t size) {
+  isintroducedbykeys_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* privateKey::add_isintroducedbykeys() {
+  return isintroducedbykeys_.Add();
+}
+inline void privateKey::add_isintroducedbykeys(const ::std::string& value) {
+  isintroducedbykeys_.Add()->assign(value);
+}
+inline void privateKey::add_isintroducedbykeys(const char* value) {
+  isintroducedbykeys_.Add()->assign(value);
+}
+inline void privateKey::add_isintroducedbykeys(const char* value, size_t size) {
+  isintroducedbykeys_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+privateKey::isintroducedbykeys() const {
+  return isintroducedbykeys_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+privateKey::mutable_isintroducedbykeys() {
+  return &isintroducedbykeys_;
+}
+
 // -------------------------------------------------------------------
 
 // publicKey
 
-// required string keyLabel = 1;
+// optional string keyLabel = 1;
 inline bool publicKey::has_keylabel() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1443,7 +1811,7 @@ inline void publicKey::set_allocated_keylabel(::std::string* keylabel) {
   }
 }
 
-// optional int32 dateAnchored = 2;
+// optional int64 dateAnchored = 2;
 inline bool publicKey::has_dateanchored() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1454,13 +1822,13 @@ inline void publicKey::clear_has_dateanchored() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void publicKey::clear_dateanchored() {
-  dateanchored_ = 0;
+  dateanchored_ = GOOGLE_LONGLONG(0);
   clear_has_dateanchored();
 }
-inline ::google::protobuf::int32 publicKey::dateanchored() const {
+inline ::google::protobuf::int64 publicKey::dateanchored() const {
   return dateanchored_;
 }
-inline void publicKey::set_dateanchored(::google::protobuf::int32 value) {
+inline void publicKey::set_dateanchored(::google::protobuf::int64 value) {
   set_has_dateanchored();
   dateanchored_ = value;
 }
@@ -1535,7 +1903,7 @@ inline void publicKey::set_allocated_version(::std::string* version) {
   }
 }
 
-// required bytes encrKeyData = 4;
+// optional bytes encrKeyData = 4;
 inline bool publicKey::has_encrkeydata() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1605,7 +1973,7 @@ inline void publicKey::set_allocated_encrkeydata(::std::string* encrkeydata) {
   }
 }
 
-// required bytes verKeyData = 5;
+// optional bytes verKeyData = 5;
 inline bool publicKey::has_verkeydata() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1805,6 +2173,75 @@ publicKey::keyfordeviceswithuuid() const {
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 publicKey::mutable_keyfordeviceswithuuid() {
   return &keyfordeviceswithuuid_;
+}
+
+// repeated int64 datesCurrentKeysAnchored = 15;
+inline int publicKey::datescurrentkeysanchored_size() const {
+  return datescurrentkeysanchored_.size();
+}
+inline void publicKey::clear_datescurrentkeysanchored() {
+  datescurrentkeysanchored_.Clear();
+}
+inline ::google::protobuf::int64 publicKey::datescurrentkeysanchored(int index) const {
+  return datescurrentkeysanchored_.Get(index);
+}
+inline void publicKey::set_datescurrentkeysanchored(int index, ::google::protobuf::int64 value) {
+  datescurrentkeysanchored_.Set(index, value);
+}
+inline void publicKey::add_datescurrentkeysanchored(::google::protobuf::int64 value) {
+  datescurrentkeysanchored_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+publicKey::datescurrentkeysanchored() const {
+  return datescurrentkeysanchored_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+publicKey::mutable_datescurrentkeysanchored() {
+  return &datescurrentkeysanchored_;
+}
+
+// optional bool isCompromised = 11;
+inline bool publicKey::has_iscompromised() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void publicKey::set_has_iscompromised() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void publicKey::clear_has_iscompromised() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void publicKey::clear_iscompromised() {
+  iscompromised_ = false;
+  clear_has_iscompromised();
+}
+inline bool publicKey::iscompromised() const {
+  return iscompromised_;
+}
+inline void publicKey::set_iscompromised(bool value) {
+  set_has_iscompromised();
+  iscompromised_ = value;
+}
+
+// optional int64 dateCreated = 12;
+inline bool publicKey::has_datecreated() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void publicKey::set_has_datecreated() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void publicKey::clear_has_datecreated() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void publicKey::clear_datecreated() {
+  datecreated_ = GOOGLE_LONGLONG(0);
+  clear_has_datecreated();
+}
+inline ::google::protobuf::int64 publicKey::datecreated() const {
+  return datecreated_;
+}
+inline void publicKey::set_datecreated(::google::protobuf::int64 value) {
+  set_has_datecreated();
+  datecreated_ = value;
 }
 
 // repeated string introducesKeys = 13;
@@ -2039,107 +2476,15 @@ inline void keyExpectation::set_allocated_toaddress(::std::string* toaddress) {
   }
 }
 
-// optional string keyLabel = 3;
-inline bool keyExpectation::has_keylabel() const {
+// optional string version = 3;
+inline bool keyExpectation::has_version() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void keyExpectation::set_has_keylabel() {
+inline void keyExpectation::set_has_version() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void keyExpectation::clear_has_keylabel() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void keyExpectation::clear_keylabel() {
-  if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
-    keylabel_->clear();
-  }
-  clear_has_keylabel();
-}
-inline const ::std::string& keyExpectation::keylabel() const {
-  return *keylabel_;
-}
-inline void keyExpectation::set_keylabel(const ::std::string& value) {
-  set_has_keylabel();
-  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
-    keylabel_ = new ::std::string;
-  }
-  keylabel_->assign(value);
-}
-inline void keyExpectation::set_keylabel(const char* value) {
-  set_has_keylabel();
-  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
-    keylabel_ = new ::std::string;
-  }
-  keylabel_->assign(value);
-}
-inline void keyExpectation::set_keylabel(const char* value, size_t size) {
-  set_has_keylabel();
-  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
-    keylabel_ = new ::std::string;
-  }
-  keylabel_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* keyExpectation::mutable_keylabel() {
-  set_has_keylabel();
-  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
-    keylabel_ = new ::std::string;
-  }
-  return keylabel_;
-}
-inline ::std::string* keyExpectation::release_keylabel() {
-  clear_has_keylabel();
-  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = keylabel_;
-    keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void keyExpectation::set_allocated_keylabel(::std::string* keylabel) {
-  if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
-    delete keylabel_;
-  }
-  if (keylabel) {
-    set_has_keylabel();
-    keylabel_ = keylabel;
-  } else {
-    clear_has_keylabel();
-    keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional int32 dateAnchored = 4;
-inline bool keyExpectation::has_dateanchored() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void keyExpectation::set_has_dateanchored() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void keyExpectation::clear_has_dateanchored() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void keyExpectation::clear_dateanchored() {
-  dateanchored_ = 0;
-  clear_has_dateanchored();
-}
-inline ::google::protobuf::int32 keyExpectation::dateanchored() const {
-  return dateanchored_;
-}
-inline void keyExpectation::set_dateanchored(::google::protobuf::int32 value) {
-  set_has_dateanchored();
-  dateanchored_ = value;
-}
-
-// optional string version = 5;
-inline bool keyExpectation::has_version() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void keyExpectation::set_has_version() {
-  _has_bits_[0] |= 0x00000010u;
-}
 inline void keyExpectation::clear_has_version() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void keyExpectation::clear_version() {
   if (version_ != &::google::protobuf::internal::kEmptyString) {
@@ -2201,108 +2546,200 @@ inline void keyExpectation::set_allocated_version(::std::string* version) {
   }
 }
 
+// optional string keyLabel = 4;
+inline bool keyExpectation::has_keylabel() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void keyExpectation::set_has_keylabel() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void keyExpectation::clear_has_keylabel() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void keyExpectation::clear_keylabel() {
+  if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
+    keylabel_->clear();
+  }
+  clear_has_keylabel();
+}
+inline const ::std::string& keyExpectation::keylabel() const {
+  return *keylabel_;
+}
+inline void keyExpectation::set_keylabel(const ::std::string& value) {
+  set_has_keylabel();
+  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
+    keylabel_ = new ::std::string;
+  }
+  keylabel_->assign(value);
+}
+inline void keyExpectation::set_keylabel(const char* value) {
+  set_has_keylabel();
+  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
+    keylabel_ = new ::std::string;
+  }
+  keylabel_->assign(value);
+}
+inline void keyExpectation::set_keylabel(const char* value, size_t size) {
+  set_has_keylabel();
+  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
+    keylabel_ = new ::std::string;
+  }
+  keylabel_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* keyExpectation::mutable_keylabel() {
+  set_has_keylabel();
+  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
+    keylabel_ = new ::std::string;
+  }
+  return keylabel_;
+}
+inline ::std::string* keyExpectation::release_keylabel() {
+  clear_has_keylabel();
+  if (keylabel_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = keylabel_;
+    keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void keyExpectation::set_allocated_keylabel(::std::string* keylabel) {
+  if (keylabel_ != &::google::protobuf::internal::kEmptyString) {
+    delete keylabel_;
+  }
+  if (keylabel) {
+    set_has_keylabel();
+    keylabel_ = keylabel;
+  } else {
+    clear_has_keylabel();
+    keylabel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int64 dateCreated = 5;
+inline bool keyExpectation::has_datecreated() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void keyExpectation::set_has_datecreated() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void keyExpectation::clear_has_datecreated() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void keyExpectation::clear_datecreated() {
+  datecreated_ = GOOGLE_LONGLONG(0);
+  clear_has_datecreated();
+}
+inline ::google::protobuf::int64 keyExpectation::datecreated() const {
+  return datecreated_;
+}
+inline void keyExpectation::set_datecreated(::google::protobuf::int64 value) {
+  set_has_datecreated();
+  datecreated_ = value;
+}
+
 // -------------------------------------------------------------------
 
-// backupFile
+// plainBackupData
 
 // repeated .mynigma.privateKey privKeys = 1;
-inline int backupFile::privkeys_size() const {
+inline int plainBackupData::privkeys_size() const {
   return privkeys_.size();
 }
-inline void backupFile::clear_privkeys() {
+inline void plainBackupData::clear_privkeys() {
   privkeys_.Clear();
 }
-inline const ::mynigma::privateKey& backupFile::privkeys(int index) const {
+inline const ::mynigma::privateKey& plainBackupData::privkeys(int index) const {
   return privkeys_.Get(index);
 }
-inline ::mynigma::privateKey* backupFile::mutable_privkeys(int index) {
+inline ::mynigma::privateKey* plainBackupData::mutable_privkeys(int index) {
   return privkeys_.Mutable(index);
 }
-inline ::mynigma::privateKey* backupFile::add_privkeys() {
+inline ::mynigma::privateKey* plainBackupData::add_privkeys() {
   return privkeys_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::mynigma::privateKey >&
-backupFile::privkeys() const {
+plainBackupData::privkeys() const {
   return privkeys_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::mynigma::privateKey >*
-backupFile::mutable_privkeys() {
+plainBackupData::mutable_privkeys() {
   return &privkeys_;
 }
 
 // repeated .mynigma.publicKey pubKeys = 2;
-inline int backupFile::pubkeys_size() const {
+inline int plainBackupData::pubkeys_size() const {
   return pubkeys_.size();
 }
-inline void backupFile::clear_pubkeys() {
+inline void plainBackupData::clear_pubkeys() {
   pubkeys_.Clear();
 }
-inline const ::mynigma::publicKey& backupFile::pubkeys(int index) const {
+inline const ::mynigma::publicKey& plainBackupData::pubkeys(int index) const {
   return pubkeys_.Get(index);
 }
-inline ::mynigma::publicKey* backupFile::mutable_pubkeys(int index) {
+inline ::mynigma::publicKey* plainBackupData::mutable_pubkeys(int index) {
   return pubkeys_.Mutable(index);
 }
-inline ::mynigma::publicKey* backupFile::add_pubkeys() {
+inline ::mynigma::publicKey* plainBackupData::add_pubkeys() {
   return pubkeys_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::mynigma::publicKey >&
-backupFile::pubkeys() const {
+plainBackupData::pubkeys() const {
   return pubkeys_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::mynigma::publicKey >*
-backupFile::mutable_pubkeys() {
+plainBackupData::mutable_pubkeys() {
   return &pubkeys_;
 }
 
 // optional string version = 3;
-inline bool backupFile::has_version() const {
+inline bool plainBackupData::has_version() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void backupFile::set_has_version() {
+inline void plainBackupData::set_has_version() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void backupFile::clear_has_version() {
+inline void plainBackupData::clear_has_version() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void backupFile::clear_version() {
+inline void plainBackupData::clear_version() {
   if (version_ != &::google::protobuf::internal::kEmptyString) {
     version_->clear();
   }
   clear_has_version();
 }
-inline const ::std::string& backupFile::version() const {
+inline const ::std::string& plainBackupData::version() const {
   return *version_;
 }
-inline void backupFile::set_version(const ::std::string& value) {
+inline void plainBackupData::set_version(const ::std::string& value) {
   set_has_version();
   if (version_ == &::google::protobuf::internal::kEmptyString) {
     version_ = new ::std::string;
   }
   version_->assign(value);
 }
-inline void backupFile::set_version(const char* value) {
+inline void plainBackupData::set_version(const char* value) {
   set_has_version();
   if (version_ == &::google::protobuf::internal::kEmptyString) {
     version_ = new ::std::string;
   }
   version_->assign(value);
 }
-inline void backupFile::set_version(const char* value, size_t size) {
+inline void plainBackupData::set_version(const char* value, size_t size) {
   set_has_version();
   if (version_ == &::google::protobuf::internal::kEmptyString) {
     version_ = new ::std::string;
   }
   version_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* backupFile::mutable_version() {
+inline ::std::string* plainBackupData::mutable_version() {
   set_has_version();
   if (version_ == &::google::protobuf::internal::kEmptyString) {
     version_ = new ::std::string;
   }
   return version_;
 }
-inline ::std::string* backupFile::release_version() {
+inline ::std::string* plainBackupData::release_version() {
   clear_has_version();
   if (version_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -2312,7 +2749,7 @@ inline ::std::string* backupFile::release_version() {
     return temp;
   }
 }
-inline void backupFile::set_allocated_version(::std::string* version) {
+inline void plainBackupData::set_allocated_version(::std::string* version) {
   if (version_ != &::google::protobuf::internal::kEmptyString) {
     delete version_;
   }
@@ -2326,28 +2763,334 @@ inline void backupFile::set_allocated_version(::std::string* version) {
 }
 
 // repeated .mynigma.keyExpectation keyExpectations = 4;
-inline int backupFile::keyexpectations_size() const {
+inline int plainBackupData::keyexpectations_size() const {
   return keyexpectations_.size();
 }
-inline void backupFile::clear_keyexpectations() {
+inline void plainBackupData::clear_keyexpectations() {
   keyexpectations_.Clear();
 }
-inline const ::mynigma::keyExpectation& backupFile::keyexpectations(int index) const {
+inline const ::mynigma::keyExpectation& plainBackupData::keyexpectations(int index) const {
   return keyexpectations_.Get(index);
 }
-inline ::mynigma::keyExpectation* backupFile::mutable_keyexpectations(int index) {
+inline ::mynigma::keyExpectation* plainBackupData::mutable_keyexpectations(int index) {
   return keyexpectations_.Mutable(index);
 }
-inline ::mynigma::keyExpectation* backupFile::add_keyexpectations() {
+inline ::mynigma::keyExpectation* plainBackupData::add_keyexpectations() {
   return keyexpectations_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::mynigma::keyExpectation >&
-backupFile::keyexpectations() const {
+plainBackupData::keyexpectations() const {
   return keyexpectations_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::mynigma::keyExpectation >*
-backupFile::mutable_keyexpectations() {
+plainBackupData::mutable_keyexpectations() {
   return &keyexpectations_;
+}
+
+// optional string integrityCheckString = 5;
+inline bool plainBackupData::has_integritycheckstring() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void plainBackupData::set_has_integritycheckstring() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void plainBackupData::clear_has_integritycheckstring() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void plainBackupData::clear_integritycheckstring() {
+  if (integritycheckstring_ != &::google::protobuf::internal::kEmptyString) {
+    integritycheckstring_->clear();
+  }
+  clear_has_integritycheckstring();
+}
+inline const ::std::string& plainBackupData::integritycheckstring() const {
+  return *integritycheckstring_;
+}
+inline void plainBackupData::set_integritycheckstring(const ::std::string& value) {
+  set_has_integritycheckstring();
+  if (integritycheckstring_ == &::google::protobuf::internal::kEmptyString) {
+    integritycheckstring_ = new ::std::string;
+  }
+  integritycheckstring_->assign(value);
+}
+inline void plainBackupData::set_integritycheckstring(const char* value) {
+  set_has_integritycheckstring();
+  if (integritycheckstring_ == &::google::protobuf::internal::kEmptyString) {
+    integritycheckstring_ = new ::std::string;
+  }
+  integritycheckstring_->assign(value);
+}
+inline void plainBackupData::set_integritycheckstring(const char* value, size_t size) {
+  set_has_integritycheckstring();
+  if (integritycheckstring_ == &::google::protobuf::internal::kEmptyString) {
+    integritycheckstring_ = new ::std::string;
+  }
+  integritycheckstring_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* plainBackupData::mutable_integritycheckstring() {
+  set_has_integritycheckstring();
+  if (integritycheckstring_ == &::google::protobuf::internal::kEmptyString) {
+    integritycheckstring_ = new ::std::string;
+  }
+  return integritycheckstring_;
+}
+inline ::std::string* plainBackupData::release_integritycheckstring() {
+  clear_has_integritycheckstring();
+  if (integritycheckstring_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = integritycheckstring_;
+    integritycheckstring_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void plainBackupData::set_allocated_integritycheckstring(::std::string* integritycheckstring) {
+  if (integritycheckstring_ != &::google::protobuf::internal::kEmptyString) {
+    delete integritycheckstring_;
+  }
+  if (integritycheckstring) {
+    set_has_integritycheckstring();
+    integritycheckstring_ = integritycheckstring;
+  } else {
+    clear_has_integritycheckstring();
+    integritycheckstring_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// backupPasswordFileWrapper
+
+// optional bytes payloadData = 1;
+inline bool backupPasswordFileWrapper::has_payloaddata() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void backupPasswordFileWrapper::set_has_payloaddata() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void backupPasswordFileWrapper::clear_has_payloaddata() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void backupPasswordFileWrapper::clear_payloaddata() {
+  if (payloaddata_ != &::google::protobuf::internal::kEmptyString) {
+    payloaddata_->clear();
+  }
+  clear_has_payloaddata();
+}
+inline const ::std::string& backupPasswordFileWrapper::payloaddata() const {
+  return *payloaddata_;
+}
+inline void backupPasswordFileWrapper::set_payloaddata(const ::std::string& value) {
+  set_has_payloaddata();
+  if (payloaddata_ == &::google::protobuf::internal::kEmptyString) {
+    payloaddata_ = new ::std::string;
+  }
+  payloaddata_->assign(value);
+}
+inline void backupPasswordFileWrapper::set_payloaddata(const char* value) {
+  set_has_payloaddata();
+  if (payloaddata_ == &::google::protobuf::internal::kEmptyString) {
+    payloaddata_ = new ::std::string;
+  }
+  payloaddata_->assign(value);
+}
+inline void backupPasswordFileWrapper::set_payloaddata(const void* value, size_t size) {
+  set_has_payloaddata();
+  if (payloaddata_ == &::google::protobuf::internal::kEmptyString) {
+    payloaddata_ = new ::std::string;
+  }
+  payloaddata_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* backupPasswordFileWrapper::mutable_payloaddata() {
+  set_has_payloaddata();
+  if (payloaddata_ == &::google::protobuf::internal::kEmptyString) {
+    payloaddata_ = new ::std::string;
+  }
+  return payloaddata_;
+}
+inline ::std::string* backupPasswordFileWrapper::release_payloaddata() {
+  clear_has_payloaddata();
+  if (payloaddata_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = payloaddata_;
+    payloaddata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void backupPasswordFileWrapper::set_allocated_payloaddata(::std::string* payloaddata) {
+  if (payloaddata_ != &::google::protobuf::internal::kEmptyString) {
+    delete payloaddata_;
+  }
+  if (payloaddata) {
+    set_has_payloaddata();
+    payloaddata_ = payloaddata;
+  } else {
+    clear_has_payloaddata();
+    payloaddata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional bool hasPassword = 2;
+inline bool backupPasswordFileWrapper::has_haspassword() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void backupPasswordFileWrapper::set_has_haspassword() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void backupPasswordFileWrapper::clear_has_haspassword() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void backupPasswordFileWrapper::clear_haspassword() {
+  haspassword_ = false;
+  clear_has_haspassword();
+}
+inline bool backupPasswordFileWrapper::haspassword() const {
+  return haspassword_;
+}
+inline void backupPasswordFileWrapper::set_haspassword(bool value) {
+  set_has_haspassword();
+  haspassword_ = value;
+}
+
+// optional string version = 3;
+inline bool backupPasswordFileWrapper::has_version() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void backupPasswordFileWrapper::set_has_version() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void backupPasswordFileWrapper::clear_has_version() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void backupPasswordFileWrapper::clear_version() {
+  if (version_ != &::google::protobuf::internal::kEmptyString) {
+    version_->clear();
+  }
+  clear_has_version();
+}
+inline const ::std::string& backupPasswordFileWrapper::version() const {
+  return *version_;
+}
+inline void backupPasswordFileWrapper::set_version(const ::std::string& value) {
+  set_has_version();
+  if (version_ == &::google::protobuf::internal::kEmptyString) {
+    version_ = new ::std::string;
+  }
+  version_->assign(value);
+}
+inline void backupPasswordFileWrapper::set_version(const char* value) {
+  set_has_version();
+  if (version_ == &::google::protobuf::internal::kEmptyString) {
+    version_ = new ::std::string;
+  }
+  version_->assign(value);
+}
+inline void backupPasswordFileWrapper::set_version(const char* value, size_t size) {
+  set_has_version();
+  if (version_ == &::google::protobuf::internal::kEmptyString) {
+    version_ = new ::std::string;
+  }
+  version_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* backupPasswordFileWrapper::mutable_version() {
+  set_has_version();
+  if (version_ == &::google::protobuf::internal::kEmptyString) {
+    version_ = new ::std::string;
+  }
+  return version_;
+}
+inline ::std::string* backupPasswordFileWrapper::release_version() {
+  clear_has_version();
+  if (version_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = version_;
+    version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void backupPasswordFileWrapper::set_allocated_version(::std::string* version) {
+  if (version_ != &::google::protobuf::internal::kEmptyString) {
+    delete version_;
+  }
+  if (version) {
+    set_has_version();
+    version_ = version;
+  } else {
+    clear_has_version();
+    version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional bytes passwordSalt = 6;
+inline bool backupPasswordFileWrapper::has_passwordsalt() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void backupPasswordFileWrapper::set_has_passwordsalt() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void backupPasswordFileWrapper::clear_has_passwordsalt() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void backupPasswordFileWrapper::clear_passwordsalt() {
+  if (passwordsalt_ != &::google::protobuf::internal::kEmptyString) {
+    passwordsalt_->clear();
+  }
+  clear_has_passwordsalt();
+}
+inline const ::std::string& backupPasswordFileWrapper::passwordsalt() const {
+  return *passwordsalt_;
+}
+inline void backupPasswordFileWrapper::set_passwordsalt(const ::std::string& value) {
+  set_has_passwordsalt();
+  if (passwordsalt_ == &::google::protobuf::internal::kEmptyString) {
+    passwordsalt_ = new ::std::string;
+  }
+  passwordsalt_->assign(value);
+}
+inline void backupPasswordFileWrapper::set_passwordsalt(const char* value) {
+  set_has_passwordsalt();
+  if (passwordsalt_ == &::google::protobuf::internal::kEmptyString) {
+    passwordsalt_ = new ::std::string;
+  }
+  passwordsalt_->assign(value);
+}
+inline void backupPasswordFileWrapper::set_passwordsalt(const void* value, size_t size) {
+  set_has_passwordsalt();
+  if (passwordsalt_ == &::google::protobuf::internal::kEmptyString) {
+    passwordsalt_ = new ::std::string;
+  }
+  passwordsalt_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* backupPasswordFileWrapper::mutable_passwordsalt() {
+  set_has_passwordsalt();
+  if (passwordsalt_ == &::google::protobuf::internal::kEmptyString) {
+    passwordsalt_ = new ::std::string;
+  }
+  return passwordsalt_;
+}
+inline ::std::string* backupPasswordFileWrapper::release_passwordsalt() {
+  clear_has_passwordsalt();
+  if (passwordsalt_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = passwordsalt_;
+    passwordsalt_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void backupPasswordFileWrapper::set_allocated_passwordsalt(::std::string* passwordsalt) {
+  if (passwordsalt_ != &::google::protobuf::internal::kEmptyString) {
+    delete passwordsalt_;
+  }
+  if (passwordsalt) {
+    set_has_passwordsalt();
+    passwordsalt_ = passwordsalt;
+  } else {
+    clear_has_passwordsalt();
+    passwordsalt_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 
