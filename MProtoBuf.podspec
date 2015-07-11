@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MProtoBuf"
-  s.version          = "1.0.6"
+  s.version          = "1.0.7"
   s.summary          = "Helper library for MCryptoLib, responsible for parsing Google Protocol Buffers structures."
   s.homepage         = "https://github.com/Mynigma/MProtoBufLib"
   s.license          = 'GPLv3'
@@ -16,6 +16,9 @@ Pod::Spec.new do |s|
   # s.header_dir = 'MProtoBuf'
   s.header_mappings_dir = 'Pod/Classes/include'
 
+  s.public_header_files = "Pod/Classes/Source/**/*.h"
+  s.private_header_files = "Pod/Classes/**/*.h"
+  
   s.platforms = { "ios" => "7.0", "osx" => "10.8" }
   s.requires_arc = true
 
