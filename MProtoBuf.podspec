@@ -13,13 +13,13 @@ Pod::Spec.new do |s|
 
   s.ios.libraries = 'z'
 
-  s.header_dir = 'MProtoBuf'
-  s.header_mappings_dir = 'Example/include'
+  # s.header_dir = 'MProtoBuf'
+  s.header_mappings_dir = 'Pod/Classes/include'
 
   s.platforms = { "ios" => "7.0", "osx" => "10.8" }
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/Source/**/*.{h,m,mm}', 'Pod/Classes/Generated Files/**/*.{h,m,mm}', 'Example/include/google/**/*.{h,m,mm,cc}'
+  s.source_files = 'Pod/Classes/Source/**/*.{h,m,mm}', 'Pod/Classes/Generated Files/**/*.{h,m,mm}', 'Pod/Classes/include/**/*.{h,m,mm,cc}'
   s.resource_bundles = {
     'MProtoBuf' => ['Pod/Assets/*.png']
   }
