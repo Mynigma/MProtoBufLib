@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.osx.exclude_files = "MProtoBuf/iOS"
 
   s.module_name = 'MProtoBuf'
-  # s.header_mappings_dir = 'Pod/Classes/include'
+  s.header_mappings_dir = 'Pod/Classes/include'
 
   s.public_header_files = "Pod/Classes/Source/**/*.h"
   s.private_header_files = 'Pod/Classes/include/**/*.h', 'Pod/Classes/Generated Files/**/*.h'
