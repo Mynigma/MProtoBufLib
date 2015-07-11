@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MProtoBuf"
-  s.version          = "1.0.10"
+  s.version          = "1.0.11"
   s.summary          = "Helper library for MCryptoLib, responsible for parsing Google Protocol Buffers structures."
   s.homepage         = "https://github.com/Mynigma/MProtoBufLib"
   s.license          = 'GPLv3'
