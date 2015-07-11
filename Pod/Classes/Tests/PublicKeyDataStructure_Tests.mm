@@ -92,14 +92,18 @@
     NSString* version = @"2.13.0";
     NSString* introducingKey = @"intro4546846785678";
     NSString* introducedKey = @"introed34658679766878";
-    NSString* currentForEmail = @"fjiwehhefud2@mynigma.org";
     
     NSNumber* index = @1;
     
     NSData* encData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_EncKey%@", index?index:@""] ofType:@"txt"]];
     NSData* verData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_VerKey%@", index?index:@""] ofType:@"txt"]];
     
-    PublicKeyDataStructure* originalStructure = [[PublicKeyDataStructure alloc] initWithPublicKeyLabel:keyLabel encData:encData verData:verData introducesKeys:@[introducedKey] isIntroducedByKeys:@[introducingKey] currentKeyForEmails:@[currentForEmail] dateAnchored:dateAnchored version:version];
+    NSArray* currentForEmails = @[@"email231204@test.com"];
+    NSArray* keyForEmails = @[@"email231204@test.com", @"email2312fdsf04@test.com"];
+    NSArray* datesAnchored = @[[NSDate dateWithTimeIntervalSince1970:12352]];
+    NSArray* keyForDevices = @[@"deviceUUID3423953481"];
+
+    PublicKeyDataStructure* originalStructure = [[PublicKeyDataStructure alloc] initWithPublicKeyLabel:keyLabel encData:encData verData:verData introducesKeys:@[introducedKey] isIntroducedByKeys:@[introducingKey] dateAnchored:dateAnchored keyForEmails:keyForEmails currentForEmails:currentForEmails datesCurrentKeysAnchored:datesAnchored keyForDevices:keyForDevices version:version];
     
     mynigma::publicKey* protoStructure = new mynigma::publicKey;
     
@@ -112,7 +116,10 @@
     XCTAssertEqualObjects(originalStructure.version, reparsedStructure.version);
     XCTAssertEqualObjects(originalStructure.introducesKeys, reparsedStructure.introducesKeys);
     XCTAssertEqualObjects(originalStructure.isIntroducedByKeys, reparsedStructure.isIntroducedByKeys);
+    XCTAssertEqualObjects(originalStructure.keyForEmails, reparsedStructure.keyForEmails);
     XCTAssertEqualObjects(originalStructure.currentKeyForEmails, reparsedStructure.currentKeyForEmails);
+    XCTAssertEqualObjects(originalStructure.keyForDevices, reparsedStructure.keyForDevices);
+    XCTAssertEqualObjects(originalStructure.datesCurrentKeysAnchored, reparsedStructure.datesCurrentKeysAnchored);
     XCTAssertEqualObjects(originalStructure.isIntroducedByKeys, reparsedStructure.isIntroducedByKeys);
     
     delete protoStructure;
@@ -120,7 +127,7 @@
 
 - (void)testNilSafe
 {
-    PublicKeyDataStructure* dataStructure = [[PublicKeyDataStructure alloc] initWithPublicKeyLabel:nil encData:nil verData:nil introducesKeys:nil isIntroducedByKeys:nil currentKeyForEmails:nil dateAnchored:nil version:nil];
+    PublicKeyDataStructure* dataStructure = [[PublicKeyDataStructure alloc] initWithPublicKeyLabel:nil encData:nil verData:nil introducesKeys:nil isIntroducedByKeys:nil dateAnchored:nil keyForEmails:nil currentForEmails:nil datesCurrentKeysAnchored:nil keyForDevices:nil version:nil];
     
     mynigma::publicKey* protoStructure = new mynigma::publicKey;
     

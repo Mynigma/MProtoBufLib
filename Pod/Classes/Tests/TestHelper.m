@@ -53,7 +53,7 @@
 
 
 #import "TestHelper.h"
-#import "BackupDataStructure.h"
+#import "PlainBackupDataStructure.h"
 #import "DeviceDiscoveryPayloadDataStructure.h"
 
 

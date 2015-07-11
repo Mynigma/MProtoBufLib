@@ -70,7 +70,6 @@
     NSString* keyLabel = @"eurru23i3r924@mynigma.org";
     NSDate* dateAnchored = [NSDate dateWithTimeIntervalSince1970:3641534];
     NSString* version = @"2.13.0";
-    NSString* currentForEmail = @"fjiwehhefud2@mynigma.org";
     BOOL isCompromised = NO;
     
     NSNumber* index = @1;
@@ -80,7 +79,12 @@
     NSData* decData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_DecKey%@", index?index:@""] ofType:@"txt"]];
     NSData* sigData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_SigKey%@", index?index:@""] ofType:@"txt"]];
     
-    PrivateKeyDataStructure* originalStructure = [[PrivateKeyDataStructure alloc] initWithPrivateKeyLabel:keyLabel encData:encData verData:verData decData:decData sigData:sigData dateAnchored:dateAnchored isCompromised:isCompromised currentForEmails:@[currentForEmail] version:version];
+    NSArray* currentForEmails = @[@"email231204@test.com"];
+    NSArray* keyForEmails = @[@"email231204@test.com", @"email2312fdsf04@test.com"];
+    NSArray* datesAnchored = @[[NSDate dateWithTimeIntervalSince1970:12352]];
+    NSArray* keyForDevices = @[@"deviceUUID3423953481"];
+
+    PrivateKeyDataStructure* originalStructure = [[PrivateKeyDataStructure alloc] initWithPrivateKeyLabel:keyLabel encData:encData verData:verData decData:decData sigData:sigData dateAnchored:dateAnchored isCompromised:isCompromised keyForEmails:keyForEmails currentForEmails:currentForEmails datesCurrentKeysAnchored:datesAnchored keyForDevices:keyForDevices version:version];
     
     mynigma::privateKey* protoStructure = new mynigma::privateKey;
     
@@ -96,14 +100,17 @@
     XCTAssertEqualObjects(originalStructure.dateAnchored, reparsedStructure.dateAnchored);
     XCTAssertEqualObjects(originalStructure.version, reparsedStructure.version);
     XCTAssertEqual(originalStructure.isCompromised, reparsedStructure.isCompromised);
+    XCTAssertEqualObjects(originalStructure.keyForEmails, reparsedStructure.keyForEmails);
     XCTAssertEqualObjects(originalStructure.currentKeyForEmails, reparsedStructure.currentKeyForEmails);
+    XCTAssertEqualObjects(originalStructure.datesCurrentKeysAnchored, reparsedStructure.datesCurrentKeysAnchored);
+    XCTAssertEqualObjects(originalStructure.keyForDevices, reparsedStructure.keyForDevices);
     
     delete protoStructure;
 }
 
 - (void)testNilSafe
 {
-    PrivateKeyDataStructure* dataStructure = [[PrivateKeyDataStructure alloc] initWithPrivateKeyLabel:nil encData:nil verData:nil decData:nil sigData:nil dateAnchored:nil isCompromised:NO currentForEmails:nil version:nil];
+    PrivateKeyDataStructure* dataStructure = [[PrivateKeyDataStructure alloc] initWithPrivateKeyLabel:nil encData:nil verData:nil decData:nil sigData:nil dateAnchored:nil isCompromised:NO keyForEmails:nil currentForEmails:nil datesCurrentKeysAnchored:nil keyForDevices:nil version:nil];
     
     mynigma::privateKey* protoStructure = new mynigma::privateKey;
     

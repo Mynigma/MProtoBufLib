@@ -84,7 +84,12 @@
     NSData* decData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_DecKey%@", index?index:@""] ofType:@"txt"]];
     NSData* sigData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_SigKey%@", index?index:@""] ofType:@"txt"]];
     
-    PrivateKeyDataStructure* privateKeyDataStructure = [[PrivateKeyDataStructure alloc] initWithPrivateKeyLabel:keyLabel encData:encData verData:verData decData:decData sigData:sigData dateAnchored:dateAnchored isCompromised:isCompromised currentForEmails:@[currentForEmail] version:version];
+    NSArray* currentForEmails = @[@"email231204@test.com"];
+    NSArray* keyForEmails = @[@"email231204@test.com", @"email2312fdsf04@test.com"];
+    NSArray* datesAnchored = @[[NSDate dateWithTimeIntervalSince1970:12352]];
+    NSArray* keyForDevices = @[@"deviceUUID3423953481"];
+    
+    PrivateKeyDataStructure* privateKeyDataStructure = [[PrivateKeyDataStructure alloc] initWithPrivateKeyLabel:keyLabel encData:encData verData:verData decData:decData sigData:sigData dateAnchored:dateAnchored isCompromised:isCompromised keyForEmails:keyForEmails currentForEmails:currentForEmails datesCurrentKeysAnchored:datesAnchored keyForDevices:keyForDevices version:version];
 
     keyLabel = @"sdfu23i3r924@mynigma.org";
     dateAnchored = [NSDate dateWithTimeIntervalSince1970:36201534];
@@ -98,14 +103,16 @@
     encData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_EncKey%@", index?index:@""] ofType:@"txt"]];
     verData = [NSData dataWithContentsOfFile:[BUNDLE pathForResource:[NSString stringWithFormat:@"Sample_VerKey%@", index?index:@""] ofType:@"txt"]];
     
-    PublicKeyDataStructure* publicKeyDataStructure = [[PublicKeyDataStructure alloc] initWithPublicKeyLabel:keyLabel encData:encData verData:verData introducesKeys:@[introducedKey] isIntroducedByKeys:@[introducingKey] currentKeyForEmails:@[currentForEmail] dateAnchored:dateAnchored version:version];
+    PublicKeyDataStructure* publicKeyDataStructure = [[PublicKeyDataStructure alloc] initWithPublicKeyLabel:keyLabel encData:encData verData:verData introducesKeys:@[introducedKey] isIntroducedByKeys:@[introducingKey] dateAnchored:dateAnchored keyForEmails:keyForEmails currentForEmails:currentForEmails datesCurrentKeysAnchored:datesAnchored keyForDevices:keyForDevices version:version];
 
     
     KeyExpectationDataStructure* keyExpectation = [[KeyExpectationDataStructure alloc] initWithKeyLabel:@"TestKeyLabel2" fromAddress:@"testAddress1@myngima.org" toAddress:@"testAddress2@myngima.org" dateAnchored:[NSDate dateWithTimeIntervalSince1970:4353425] version:@"TestVersion3423400"];
     
     version = @"SomeVersion4r346547";
     
-    PlainBackupDataStructure* originalStructure = [[PlainBackupDataStructure alloc] initWithPrivateKeys:@[privateKeyDataStructure] publicKeys:@[publicKeyDataStructure] keyExpectations:@[keyExpectation] version:version];
+    NSString* integrityCheck = @"integrityCheck4234235";
+    
+    PlainBackupDataStructure* originalStructure = [[PlainBackupDataStructure alloc] initWithPrivateKeys:@[privateKeyDataStructure] publicKeys:@[publicKeyDataStructure] keyExpectations:@[keyExpectation] integrityCheck:integrityCheck version:version];
     
     XCTAssertNotNil(originalStructure);
     
@@ -127,7 +134,10 @@
     XCTAssertEqualObjects(privateKeyDataStructure.dateAnchored, reparsedPrivateKeyDataStructure.dateAnchored);
     XCTAssertEqualObjects(privateKeyDataStructure.version, reparsedPrivateKeyDataStructure.version);
     XCTAssertEqual(privateKeyDataStructure.isCompromised, reparsedPrivateKeyDataStructure.isCompromised);
+    XCTAssertEqualObjects(privateKeyDataStructure.keyForEmails, reparsedPrivateKeyDataStructure.keyForEmails);
     XCTAssertEqualObjects(privateKeyDataStructure.currentKeyForEmails, reparsedPrivateKeyDataStructure.currentKeyForEmails);
+    XCTAssertEqualObjects(privateKeyDataStructure.keyForDevices, reparsedPrivateKeyDataStructure.keyForDevices);
+    XCTAssertEqualObjects(privateKeyDataStructure.datesCurrentKeysAnchored, reparsedPrivateKeyDataStructure.datesCurrentKeysAnchored);
 
     
     PublicKeyDataStructure* reparsedPublicKeyDataStructure = reparsedStructure.publicKeys.firstObject;
@@ -137,7 +147,10 @@
     XCTAssertEqualObjects(publicKeyDataStructure.version, reparsedPublicKeyDataStructure.version);
     XCTAssertEqualObjects(publicKeyDataStructure.introducesKeys, reparsedPublicKeyDataStructure.introducesKeys);
     XCTAssertEqualObjects(publicKeyDataStructure.isIntroducedByKeys, reparsedPublicKeyDataStructure.isIntroducedByKeys);
+    XCTAssertEqualObjects(publicKeyDataStructure.keyForEmails, reparsedPublicKeyDataStructure.keyForEmails);
     XCTAssertEqualObjects(publicKeyDataStructure.currentKeyForEmails, reparsedPublicKeyDataStructure.currentKeyForEmails);
+    XCTAssertEqualObjects(publicKeyDataStructure.keyForDevices, reparsedPublicKeyDataStructure.keyForDevices);
+    XCTAssertEqualObjects(publicKeyDataStructure.datesCurrentKeysAnchored, reparsedPublicKeyDataStructure.datesCurrentKeysAnchored);
     XCTAssertEqualObjects(publicKeyDataStructure.isIntroducedByKeys, reparsedPublicKeyDataStructure.isIntroducedByKeys);
 
     
@@ -155,7 +168,7 @@
 
 - (void)testNilSafe
 {
-    PlainBackupDataStructure* dataStructure = [[PlainBackupDataStructure alloc] initWithPrivateKeys:nil publicKeys:nil keyExpectations:nil version:nil];
+    PlainBackupDataStructure* dataStructure = [[PlainBackupDataStructure alloc] initWithPrivateKeys:nil publicKeys:nil keyExpectations:nil integrityCheck:nil version:nil];
     
     [dataStructure serialisedData];
 }
