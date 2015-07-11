@@ -60,7 +60,7 @@
 @implementation PublicKeyDataStructure
 
 
-- (instancetype)initWithPublicKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData introducesKeys:(NSArray*)introducesKeys isIntroducedByKeys:(NSArray*)isIntoducedByKeys currentKeyForEmails:(NSArray*)currentForEmails dateAnchored:(NSDate*)dateAnchored version:(NSString*)version
+- (instancetype)initWithPublicKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData introducesKeys:(NSArray*)introducesKeys isIntroducedByKeys:(NSArray*)isIntoducedByKeys dateAnchored:(NSDate*)dateAnchored keyForEmails:(NSArray*)emails currentForEmails:(NSArray*)currentKeyForEmails datesCurrentKeysAnchored:(NSArray*)datesCurrentKeysAnchored keyForDevices:(NSArray*)deviceUUIDs version:(NSString*)version;
 {
     self = [super init];
     if (self) {
@@ -72,8 +72,13 @@
         
         [self setIntroducesKeys:introducesKeys];
         [self setIsIntroducedByKeys:isIntoducedByKeys];
-        [self setCurrentKeyForEmails:currentForEmails];
         
+        [self setKeyForEmails:emails];
+        [self setCurrentKeyForEmails:currentKeyForEmails];
+        [self setDatesCurrentKeysAnchored:datesCurrentKeysAnchored];
+        
+        [self setKeyForDevices:deviceUUIDs];
+
         [self setDateAnchored:dateAnchored];
         
         [self setVersion:version];
@@ -109,6 +114,22 @@
     NSString* versionString = [[NSString alloc] initWithBytes:protocPubKey->version().data() length:protocPubKey->version().size() encoding:NSUTF8StringEncoding];
     [newStructure setVersion:versionString];
     
+
+    
+    NSMutableArray* emailStrings = [NSMutableArray new];
+    
+    for(int i = 0; i < protocPubKey->keyforemails_size(); i++)
+    {
+        NSString* keyForEmailString = [[NSString alloc] initWithBytes:protocPubKey->keyforemails(i).data() length:protocPubKey->keyforemails(i).size() encoding:NSUTF8StringEncoding];
+        
+        if(keyForEmailString)
+            [emailStrings addObject:keyForEmailString];
+    }
+    
+    [newStructure setKeyForEmails:emailStrings];
+    
+    
+    
     NSMutableArray* currentEmailStrings = [NSMutableArray new];
     
     for(int i = 0; i < protocPubKey->currentkeyforemails_size(); i++)
@@ -120,6 +141,33 @@
     }
     
     [newStructure setCurrentKeyForEmails:currentEmailStrings];
+    
+    
+    
+    NSMutableArray* deviceUUIDStrings = [NSMutableArray new];
+    
+    for(int i = 0; i < protocPubKey->keyfordeviceswithuuid_size(); i++)
+    {
+        NSString* deviceUUIDString = [[NSString alloc] initWithBytes:protocPubKey->keyfordeviceswithuuid(i).data() length:protocPubKey->keyfordeviceswithuuid(i).size() encoding:NSUTF8StringEncoding];
+        
+        if(deviceUUIDString)
+            [deviceUUIDStrings addObject:deviceUUIDString];
+    }
+    
+    [newStructure setKeyForDevices:deviceUUIDStrings];
+    
+    
+    NSMutableArray* anchorDates = [NSMutableArray new];
+    
+    for(int i = 0; i < protocPubKey->datescurrentkeysanchored_size(); i++)
+    {
+        NSDate* anchorDate = [NSDate dateWithTimeIntervalSince1970:protocPubKey->datescurrentkeysanchored(i)];
+        
+        if(anchorDate)
+            [anchorDates addObject:anchorDate];
+    }
+    
+    [newStructure setDatesCurrentKeysAnchored:anchorDates];
 
     
     NSMutableArray* isIntroducedByKeys = [NSMutableArray new];
@@ -167,10 +215,27 @@
     if(self.version)
         pubKey->set_version([self.version UTF8String]);
     
+    
+    for(NSString* emailString in self.keyForEmails)
+    {
+        pubKey->add_keyforemails([emailString?emailString:@"" UTF8String]);
+    }
+    
     for(NSString* currentEmailString in self.currentKeyForEmails)
     {
-        pubKey->add_currentkeyforemails([currentEmailString UTF8String]);
+        pubKey->add_currentkeyforemails([currentEmailString?currentEmailString:@"" UTF8String]);
     }
+    
+    for(NSString* deviceUUID in self.keyForDevices)
+    {
+        pubKey->add_keyfordeviceswithuuid([deviceUUID UTF8String]);
+    }
+    
+    for(NSDate* anchorDate in self.datesCurrentKeysAnchored)
+    {
+        pubKey->add_datescurrentkeysanchored([anchorDate timeIntervalSince1970]);
+    }
+
     
     for(NSString* introducedKeyLabel in self.isIntroducedByKeys)
     {

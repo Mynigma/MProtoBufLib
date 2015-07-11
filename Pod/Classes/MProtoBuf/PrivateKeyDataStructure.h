@@ -56,7 +56,7 @@
 
 @interface PrivateKeyDataStructure : NSObject <ParseableDataStructure>
 
-- (instancetype)initWithPrivateKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData decData:(NSData*)decData sigData:(NSData*)sigData dateAnchored:(NSDate*)dateAnchored isCompromised:(BOOL)isCompromised currentForEmails:(NSArray*)currentKeyForEmails version:(NSString*)version;
+- (instancetype)initWithPrivateKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData decData:(NSData*)decData sigData:(NSData*)sigData dateAnchored:(NSDate*)dateAnchored isCompromised:(BOOL)isCompromised keyForEmails:(NSArray*)emails currentForEmails:(NSArray*)currentKeyForEmails datesCurrentKeysAnchored:(NSArray*)datesCurrentKeysAnchored keyForDevices:(NSArray*)deviceUUIDs version:(NSString*)version;
 
 
 //- (PrivateKeyData*)privateKeyData;
@@ -76,6 +76,9 @@
 @property BOOL isCompromised;
 
 @property NSArray* currentKeyForEmails;
+@property NSArray* keyForEmails;
+@property NSArray* datesCurrentKeysAnchored;
+@property NSArray* keyForDevices;
 
 
 

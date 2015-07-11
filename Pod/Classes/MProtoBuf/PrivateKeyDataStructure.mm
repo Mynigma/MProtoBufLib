@@ -62,7 +62,7 @@
 
 @implementation PrivateKeyDataStructure
 
-- (instancetype)initWithPrivateKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData decData:(NSData*)decData sigData:(NSData*)sigData dateAnchored:(NSDate*)dateAnchored isCompromised:(BOOL)isCompromised currentForEmails:(NSArray*)currentKeyForEmails version:(NSString*)version
+- (instancetype)initWithPrivateKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData decData:(NSData*)decData sigData:(NSData*)sigData dateAnchored:(NSDate*)dateAnchored isCompromised:(BOOL)isCompromised keyForEmails:(NSArray*)emails currentForEmails:(NSArray*)currentKeyForEmails datesCurrentKeysAnchored:(NSArray*)datesCurrentKeysAnchored keyForDevices:(NSArray*)deviceUUIDs version:(NSString*)version;
 {
     self = [super init];
     if (self) {
@@ -77,7 +77,12 @@
         
         [self setDateAnchored:dateAnchored];
         [self setIsCompromised:isCompromised];
+        
+        [self setKeyForEmails:emails];
         [self setCurrentKeyForEmails:currentKeyForEmails];
+        [self setDatesCurrentKeysAnchored:datesCurrentKeysAnchored];
+        
+        [self setKeyForDevices:deviceUUIDs];
         
         [self setVersion:version];
     }
@@ -115,6 +120,22 @@
     NSString* versionString = [[NSString alloc] initWithBytes:protocPrivKey->version().data() length:protocPrivKey->version().size() encoding:NSUTF8StringEncoding];
     [newStructure setVersion:versionString];
     
+
+    
+    NSMutableArray* emailStrings = [NSMutableArray new];
+    
+    for(int i = 0; i < protocPrivKey->keyforemails_size(); i++)
+    {
+        NSString* keyForEmailString = [[NSString alloc] initWithBytes:protocPrivKey->keyforemails(i).data() length:protocPrivKey->keyforemails(i).size() encoding:NSUTF8StringEncoding];
+        
+        if(keyForEmailString)
+            [emailStrings addObject:keyForEmailString];
+    }
+    
+    [newStructure setKeyForEmails:emailStrings];
+
+    
+    
     NSMutableArray* currentEmailStrings = [NSMutableArray new];
     
     for(int i = 0; i < protocPrivKey->currentkeyforemails_size(); i++)
@@ -126,6 +147,35 @@
     }
     
     [newStructure setCurrentKeyForEmails:currentEmailStrings];
+  
+    
+    
+    NSMutableArray* deviceUUIDStrings = [NSMutableArray new];
+    
+    for(int i = 0; i < protocPrivKey->keyfordeviceswithuuid_size(); i++)
+    {
+        NSString* deviceUUIDString = [[NSString alloc] initWithBytes:protocPrivKey->keyfordeviceswithuuid(i).data() length:protocPrivKey->keyfordeviceswithuuid(i).size() encoding:NSUTF8StringEncoding];
+        
+        if(deviceUUIDString)
+            [deviceUUIDStrings addObject:deviceUUIDString];
+    }
+    
+    [newStructure setKeyForDevices:deviceUUIDStrings];
+
+    
+    NSMutableArray* anchorDates = [NSMutableArray new];
+    
+    for(int i = 0; i < protocPrivKey->datescurrentkeysanchored_size(); i++)
+    {
+        NSDate* anchorDate = [NSDate dateWithTimeIntervalSince1970:protocPrivKey->datescurrentkeysanchored(i)];
+        
+        if(anchorDate)
+            [anchorDates addObject:anchorDate];
+    }
+    
+    [newStructure setDatesCurrentKeysAnchored:anchorDates];
+    
+    
     
     NSInteger UNIXDate = protocPrivKey->dateanchored();
     if(UNIXDate>0)
@@ -150,9 +200,24 @@
     
     privKey->set_version([self.version?self.version:@"" UTF8String]);
     
+    for(NSString* emailString in self.keyForEmails)
+    {
+        privKey->add_keyforemails([emailString?emailString:@"" UTF8String]);
+    }
+
     for(NSString* currentEmailString in self.currentKeyForEmails)
     {
         privKey->add_currentkeyforemails([currentEmailString?currentEmailString:@"" UTF8String]);
+    }
+    
+    for(NSString* deviceUUID in self.keyForDevices)
+    {
+        privKey->add_keyfordeviceswithuuid([deviceUUID UTF8String]);
+    }
+    
+    for(NSDate* anchorDate in self.datesCurrentKeysAnchored)
+    {
+        privKey->add_datescurrentkeysanchored([anchorDate timeIntervalSince1970]);
     }
     
     privKey->set_dateanchored([self.dateAnchored timeIntervalSince1970]);

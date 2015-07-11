@@ -62,7 +62,7 @@
 @interface PublicKeyDataStructure : NSObject <ParseableDataStructure>
 
 
-- (instancetype)initWithPublicKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData introducesKeys:(NSArray*)introducesKeys isIntroducedByKeys:(NSArray*)isIntoducedByKeys currentKeyForEmails:(NSArray*)currentForEmails dateAnchored:(NSDate*)dateAnchored version:(NSString*)version;
+- (instancetype)initWithPublicKeyLabel:(NSString*)keyLabel encData:(NSData*)encData verData:(NSData*)verData introducesKeys:(NSArray*)introducesKeys isIntroducedByKeys:(NSArray*)isIntoducedByKeys dateAnchored:(NSDate*)dateAnchored keyForEmails:(NSArray*)emails currentForEmails:(NSArray*)currentKeyForEmails datesCurrentKeysAnchored:(NSArray*)datesCurrentKeysAnchored keyForDevices:(NSArray*)deviceUUIDs version:(NSString*)version;
 
 
 
@@ -85,6 +85,9 @@
 
 
 @property NSArray* currentKeyForEmails;
+@property NSArray* keyForEmails;
+@property NSArray* datesCurrentKeysAnchored;
+@property NSArray* keyForDevices;
 
 
 @end
