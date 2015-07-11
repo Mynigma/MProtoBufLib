@@ -92,7 +92,7 @@
     NSString* keyLabel = [[NSString alloc] initWithBytes:keyExpectationProtoStructure->keylabel().data() length:keyExpectationProtoStructure->keylabel().size() encoding:NSUTF8StringEncoding];
     [newStructure setKeyLabel:keyLabel];
     
-    long long unixAnchorDate = keyExpectationProtoStructure->dateanchored();
+    long long unixAnchorDate = keyExpectationProtoStructure->datecreated();
     
     if(unixAnchorDate>0)
         [newStructure setDateAnchored:[NSDate dateWithTimeIntervalSince1970:unixAnchorDate]];
@@ -112,7 +112,7 @@
         keyExpect->set_toaddress([self.toAddress UTF8String]);
     if(self.keyLabel)
         keyExpect->set_keylabel([self.keyLabel UTF8String]);
-    keyExpect->set_dateanchored([self.dateAnchored timeIntervalSince1970]);
+    keyExpect->set_datecreated([self.dateAnchored timeIntervalSince1970]);
 }
 
 
