@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.ios.libraries = 'z'
 
-  s.header_dir = 'MProtoBuf'
+  # s.header_dir = 'MProtoBuf'
 
   s.platforms = { "ios" => "7.0", "osx" => "10.8" }
   s.requires_arc = true
