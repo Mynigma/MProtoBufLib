@@ -53,7 +53,7 @@
 
 #import "backupData.pb.h"
 
-#import "BackupDataStructure.h"
+#import "PlainBackupDataStructure.h"
 #import "PrivateKeyDataStructure.h"
 #import "PublicKeyDataStructure.h"
 #import "PublicKeyDataStructure.h"
@@ -63,9 +63,9 @@
 
 
 
-@implementation BackupDataStructure
+@implementation PlainBackupDataStructure
 
-- (instancetype)initWithPrivateKeys:(NSArray*)privateKeys publicKeys:(NSArray*)publicKeys keyExpectations:(NSArray*)keyExpectations version:(NSString*)version
+- (instancetype)initWithPrivateKeys:(NSArray*)privateKeys publicKeys:(NSArray*)publicKeys keyExpectations:(NSArray*)keyExpectations integrityCheck:(NSString *)integrityCheck version:(NSString*)version
 {
     self = [super init];
     if (self) {
@@ -75,6 +75,8 @@
         [self setPublicKeys:publicKeys];
         
         [self setKeyExpectations:keyExpectations];
+        
+        [self setIntegrityCheck:integrityCheck];
 
         [self setVersion:version];
     }
@@ -83,9 +85,9 @@
 
 + (instancetype)deserialiseData:(NSData*)data
 {    
-    BackupDataStructure* newStructure = [BackupDataStructure new];
+    PlainBackupDataStructure* newStructure = [PlainBackupDataStructure new];
     
-    mynigma::backupFile* protocBackupData = new mynigma::backupFile;
+    mynigma::plainBackupData* protocBackupData = new mynigma::plainBackupData;
     
     protocBackupData->ParseFromArray([data bytes], (int)[data length]);
     
@@ -132,6 +134,8 @@
     
     [newStructure setKeyExpectations:newKeyExpectations];
     
+    [newStructure setIntegrityCheck:[NSString stringWithCString:protocBackupData->integritycheckstring().data() encoding:NSUTF8StringEncoding]];
+    
     if(protocBackupData)
         delete protocBackupData;
     
@@ -140,7 +144,7 @@
 
 - (NSData*)serialisedData
 {
-    mynigma::backupFile* protocBackupData = new mynigma::backupFile;
+    mynigma::plainBackupData* protocBackupData = new mynigma::plainBackupData;
     
     if(self.version)
         protocBackupData->set_version([self.version UTF8String]);
@@ -165,6 +169,9 @@
         
         [keyExpectationStructure serialiseIntoProtoBufStructure:keyExpect];
     }
+    
+    if(self.integrityCheck)
+        protocBackupData->set_integritycheckstring([self.integrityCheck UTF8String]);
     
     int data_size = protocBackupData->ByteSize();
     void* backup_data = malloc(data_size);
