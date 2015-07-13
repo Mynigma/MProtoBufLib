@@ -8,6 +8,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/Mynigma/MProtoBufLib.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/Mynigma'
 
+  s.platform = :ios
+
   s.ios.deployment_target = "7.0"
   s.osx.deployment_target = "10.8"
 
